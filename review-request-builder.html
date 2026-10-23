@@ -1,0 +1,897 @@
+<title>업무</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Sans+KR:wght@400;700&display=swap">
+<style>
+/* Layout: 왼쪽 작업 패널(파일·입력) + 오른쪽 실제 페이지 미리보기. 좁은 화면에서는 위아래로 쌓음 */
+:root {
+  --bg: #F4F6F4;
+  --surface: #FFFFFF;
+  --ink: #18221E;
+  --muted: #5B6862;
+  --line: #DCE2DE;
+  --accent: #0F6B5A;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #E3F0EC;
+  --warn: #A9441C;
+  --sheet-shadow: rgba(16, 34, 28, .08);
+  --gnb-bg: #14211C;
+  --gnb-ink: #E6EEEA;
+  --gnb-muted: #8FA39A;
+  --gnb-hover: rgba(255, 255, 255, .06);
+  --gnb-active: rgba(76, 188, 159, .18);
+  --gnb-active-ink: #7FD8BF;
+  --ui: "IBM Plex Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111513; --surface: #1A201D; --ink: #E5EBE8; --muted: #98A59F; --line: #2D3531;
+    --accent: #4CBC9F; --accent-ink: #0A1915; --accent-soft: #1D302A; --warn: #E58A63; --sheet-shadow: rgba(0,0,0,.35);
+    --gnb-bg: #0B100E; --gnb-ink: #E5EBE8; --gnb-muted: #84968E; --gnb-hover: rgba(255,255,255,.05); --gnb-active: rgba(76,188,159,.16); --gnb-active-ink: #7FD8BF;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111513; --surface: #1A201D; --ink: #E5EBE8; --muted: #98A59F; --line: #2D3531;
+  --accent: #4CBC9F; --accent-ink: #0A1915; --accent-soft: #1D302A; --warn: #E58A63; --sheet-shadow: rgba(0,0,0,.35);
+    --gnb-bg: #0B100E; --gnb-ink: #E5EBE8; --gnb-muted: #84968E; --gnb-hover: rgba(255,255,255,.05); --gnb-active: rgba(76,188,159,.16); --gnb-active-ink: #7FD8BF;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--ink); font-family: var(--ui); font-size: 14px; line-height: 1.55; }
+/* 업무 도구 셸: 왼쪽 GNB(메뉴) + 오른쪽 메뉴별 화면 */
+.app { display: grid; grid-template-columns: 216px minmax(0, 1fr); min-height: 100vh; }
+.gnb { background: var(--gnb-bg); color: var(--gnb-ink); position: sticky; top: env(safe-area-inset-top, 0px); height: calc(100vh - env(safe-area-inset-top, 0px)); overflow-y: auto; display: flex; flex-direction: column; gap: 20px; padding-block: 24px; padding-left: max(14px, env(safe-area-inset-left, 0px)); padding-right: 14px; }
+.gnb-brand { display: flex; flex-direction: column; gap: 2px; padding: 0 10px; }
+.gnb-brand strong { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+.gnb-brand span { font-size: 11.5px; color: var(--gnb-muted); letter-spacing: .04em; }
+.gnb-group { display: flex; flex-direction: column; gap: 4px; }
+.gnb-label { font-size: 11px; color: var(--gnb-muted); letter-spacing: .08em; padding: 0 10px; margin-bottom: 2px; }
+.gnb-item { appearance: none; border: 0; background: transparent; color: var(--gnb-ink); font: inherit; font-size: 13.5px; text-align: left; display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 8px; cursor: pointer; }
+.gnb-item svg { width: 18px; height: 18px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; opacity: .85; }
+.gnb-item:hover { background: var(--gnb-hover); }
+.gnb-item[aria-current="page"] { background: var(--gnb-active); color: var(--gnb-active-ink); font-weight: 600; }
+.gnb-item:focus-visible { outline: 2px solid var(--gnb-active-ink); outline-offset: 1px; }
+.main { min-width: 0; }
+@media (max-width: 900px) {
+  .app { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .gnb { position: static; height: auto; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 8px 16px; padding-block: 12px; padding-right: max(14px, env(safe-area-inset-right, 0px)); }
+  .gnb-group { flex-direction: row; flex-wrap: wrap; }
+  .gnb-label { display: none; }
+}
+.wrap { max-width: 1320px; margin: 0 auto; padding-block: 28px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header.top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; margin-bottom: 20px; }
+h1 { font-size: 24px; font-weight: 600; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+.sub { color: var(--muted); margin: 4px 0 0; max-width: 62ch; }
+.tabs { display: flex; gap: 4px; padding: 4px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.tab { appearance: none; border: 0; background: transparent; color: var(--muted); font: inherit; font-weight: 500; padding: 8px 16px; border-radius: 7px; cursor: pointer; text-align: left; }
+.tab small { display: block; font-size: 11.5px; font-weight: 400; }
+.tab[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); }
+.tabsets { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; max-width: 100%; }
+.tabs { flex-wrap: wrap; }
+.tabs.sub { background: transparent; border-color: transparent; padding: 0; }
+.tabs.sub .tab { border: 1px solid var(--line); background: var(--surface); padding: 6px 14px; }
+.tabs.sub .tab[aria-selected="true"] { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+@media (max-width: 900px) { .tabsets { align-items: flex-start; } }
+@media (max-width: 600px) { .tabs.sub .tab small { display: none; } }
+.tab:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, .drop:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.grid { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 24px; align-items: start; }
+@media (max-width: 900px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.panel { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.box { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.box h2 { font-size: 13px; font-weight: 600; margin: 0; letter-spacing: .04em; color: var(--muted); }.drop { border: 1.5px dashed var(--line); border-radius: 8px; padding: 20px 14px; text-align: center; cursor: pointer; color: var(--muted); transition: border-color .15s, background .15s; }
+.drop strong { display: block; color: var(--ink); font-weight: 600; margin-bottom: 2px; }
+.drop.over { border-color: var(--accent); background: var(--accent-soft); }
+.status { font-size: 12.5px; color: var(--muted); margin: 0; }
+.status.sample { color: var(--warn); }
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; }
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.field.full { grid-column: 1 / -1; }
+label { font-size: 12px; color: var(--muted); }
+input[type="text"], textarea, select { width: 100%; font: inherit; font-size: 13.5px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 7px 9px; }
+textarea { resize: vertical; min-height: 64px; }
+.files { overflow-x: auto; }
+table.list { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+table.list th, table.list td { text-align: left; padding: 6px 6px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+table.list th { color: var(--muted); font-weight: 500; }
+table.list td.num { font-variant-numeric: tabular-nums; font-family: var(--mono); font-size: 12px; }
+table.list select { padding: 3px 6px; font-size: 12.5px; width: auto; }
+.thumb { width: 34px; height: 34px; object-fit: contain; background: var(--bg); border-radius: 4px; display: block; }
+.out { display: flex; flex-direction: column; gap: 10px; }
+.btn { appearance: none; font: inherit; font-weight: 600; border-radius: 8px; padding: 11px 16px; cursor: pointer; border: 1px solid transparent; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); font-weight: 500; padding: 8px 12px; }
+.btn:disabled { opacity: .5; cursor: progress; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; }
+.fname { font-family: var(--mono); font-size: 12px; color: var(--muted); word-break: break-all; margin: 0; }
+.msg { font-size: 12.5px; margin: 0; }
+.msg.err { color: var(--warn); }
+.preview { min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.preview-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.preview-head h2 { font-size: 15px; font-weight: 600; margin: 0; }
+.preview-head span { color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.pages { display: grid; gap: 18px; }
+.pages.lg { grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); }
+.pages.skt { grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
+figure.page { margin: 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+figure.page canvas { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 2px 10px var(--sheet-shadow); background: #fff; }
+figure.page figcaption { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.title-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.box-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-block: -4px; }
+.empty { color: var(--muted); border: 1.5px dashed var(--line); border-radius: 8px; padding: 48px 16px; text-align: center; margin: 0; }
+.btn.small { padding: 5px 12px; font-size: 13px; }
+dialog.manual { width: min(920px, calc(100vw - 32px)); height: min(92vh, 1400px); padding: 0; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); }
+dialog.manual[open] { display: flex; flex-direction: column; }
+dialog.manual::backdrop { background: rgba(10, 20, 16, .55); }
+.manual-head { display: flex; align-items: center; justify-content: space-between; gap: 8px 12px; flex-wrap: wrap; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.manual-head h2 { font-size: 15px; font-weight: 600; margin: 0; }
+.manual-head .row { align-items: center; }
+.manual-head .msg { width: 100%; }
+.manual-body { overflow-y: auto; padding: 16px; background: var(--bg); display: flex; flex-direction: column; gap: 14px; flex: 1; min-height: 0; }
+.manual-body img { width: 100%; height: auto; display: block; background: #fff; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 2px 10px var(--sheet-shadow); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="app">
+<nav class="gnb" aria-label="업무 메뉴">
+  <div class="gnb-brand"><strong>오션블루 업무 도구</strong><span>운영 업무</span></div>
+  <div class="gnb-group"><div class="gnb-label">업무 메뉴</div><div class="gnb-group" id="gnb-menu"></div></div>
+</nav>
+
+<main class="main">
+<section class="view" id="view-review" aria-label="광고 이미지 검수">
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="title-row">
+        <h1>광고 소재 검수 요청서</h1>
+        <button class="btn ghost small" id="open-manual" aria-haspopup="dialog">사용 매뉴얼</button>
+      </div>
+      <p class="sub">소재 이미지 ZIP을 올리면 크기를 재서 통신사 양식에 맞춰 넣고, 수정 가능한 PPTX와 PDF를 함께 만듭니다.</p>
+    </div>
+    <div class="tabsets">
+      <div class="tabs" role="tablist" aria-label="서비스" id="svc-tabs">
+        <button class="tab" role="tab" id="svc-health" data-svc="health" aria-selected="false">헬스케어</button>
+        <button class="tab" role="tab" id="svc-cloud" data-svc="cloud" aria-selected="false">안심 클라우드</button>
+      </div>
+      <div class="tabs sub" role="tablist" aria-label="통신사" id="car-tabs"></div>    </div>
+  </header>
+
+  <div class="grid">
+    <div class="panel">
+      <section class="box">
+        <div class="box-head"><h2>소재 파일</h2><button class="btn ghost small" id="clear" disabled>전체 지우기</button></div>
+        <div class="drop" id="drop" tabindex="0" role="button" aria-label="ZIP 또는 이미지 파일 선택">
+          <strong>ZIP 또는 이미지를 끌어다 놓기</strong>
+          클릭해서 고를 수도 있습니다 (zip, jpg, png, webp) · 올릴 때마다 목록에 추가됩니다
+        </div>
+        <input type="file" id="file" accept=".zip,image/*" multiple hidden>
+        <p class="status" id="status"></p>
+        <div class="files"><table class="list" id="list"></table></div>
+      </section>
+
+      <section class="box">
+        <h2>공통 정보</h2>        <div class="fields">
+          <div class="field"><label for="f-service">서비스명</label><input type="text" id="f-service" value="안심 클라우드"></div>
+          <div class="field"><label for="f-date">작성일</label><input type="text" id="f-date"></div>
+          <div class="field full"><label for="f-company">작성사</label><input type="text" id="f-company" value="오션블루"></div>
+        </div>
+      </section>
+
+      <section class="box" id="opts-lg">
+        <h2 id="opts-lg-title">슬라이드 양식 항목</h2>        <div class="fields">
+          <div class="field full"><label for="lg-title">문서 제목</label><input type="text" id="lg-title" value="오션블루 부가서비스 외부 광고 이미지 검수 요청"></div>
+          <div class="field"><label for="lg-carrier">통신사</label><input type="text" id="lg-carrier" value="LG U+"></div>
+          <div class="field"><label for="lg-reason">검수 사유</label><input type="text" id="lg-reason" value="신규 광고 소재"></div>
+          <div class="field full"><label for="lg-media">광고 매체</label><input type="text" id="lg-media" value="Google Display Network (GDN)"></div>
+          <div class="field full"><label for="lg-placement">광고 지면</label><input type="text" id="lg-placement" value="Google Display Network (GDN)"></div>
+          <div class="field full"><label for="lg-schedule">노출 일정</label><input type="text" id="lg-schedule" value="통신사 검수 완료 후 최종 확정 예정"></div>
+          <div class="field full"><label for="lg-appsize">앱 노출 사이즈</label><input type="text" id="lg-appsize" value="반응 소재에 따른 오토 리사이징"></div>
+          <div class="field full"><label for="lg-etc">기타</label><input type="text" id="lg-etc" value="광고 표기 영역은 제휴사 가이드에 따름"></div>
+        </div>
+      </section>
+
+      <section class="box" id="opts-skt" hidden>
+        <h2>배너 시트 양식 항목</h2>        <div class="fields">
+          <div class="field full"><label for="skt-guide">안내 문구 ({규격}, {비율}은 규격별로 자동 입력)</label><textarea id="skt-guide">위 소재는 모두 동일한 크기({규격})입니다. 지면에서는 {비율}로 축소해 배치했습니다.</textarea></div>
+        </div>
+      </section>
+
+      <section class="box out">
+        <h2>내보내기</h2>        <p class="fname" id="fname"></p>
+        <button class="btn primary" id="make">PPTX + PDF 만들기</button>
+        <div class="row" id="again" hidden>
+          <button class="btn ghost" id="save-pptx">PPTX 다시 저장</button>
+          <button class="btn ghost" id="save-pdf">PDF 다시 저장</button>
+        </div>
+        <p class="msg" id="msg" aria-live="polite"></p>
+      </section>
+    </div>
+
+    <section class="preview">
+      <div class="preview-head"><h2 id="pv-title">미리보기</h2><span id="pv-count"></span></div>      <div class="pages lg" id="pages"></div>
+    </section>
+  </div>
+</div>
+</section>
+</main>
+</div>
+
+<dialog class="manual" id="manual" aria-labelledby="manual-title">
+  <div class="manual-head">
+    <h2 id="manual-title">사용 매뉴얼</h2>
+    <div class="row">
+      <button class="btn ghost small" id="manual-save">PDF로 저장</button>
+      <button class="btn ghost small" id="manual-close">닫기</button>
+    </div>
+    <p class="msg" id="manual-msg" aria-live="polite" hidden></p>
+  </div>
+  <div class="manual-body" id="manual-body"></div>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+
+  // ---------- GNB 메뉴 ----------
+  // 메뉴를 늘릴 때는 여기에 항목을 추가하고, 같은 id로 <section class="view" id="view-{id}">를 만든다
+  const ICONS = {
+    check: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m8 12 3 3 5-6"/></svg>',
+  };
+  const MENUS = [
+    { id: 'review', label: '광고 이미지 검수', icon: 'check' },
+  ];
+  function setMenu(id) {
+    if (!MENUS.some((m) => m.id === id)) id = MENUS[0].id;
+    for (const m of MENUS) {
+      const v = $(`view-${m.id}`);
+      if (v) v.hidden = m.id !== id;
+    }
+    for (const b of document.querySelectorAll('#gnb-menu .gnb-item')) {
+      if (b.dataset.menu === id) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
+    }
+    try { localStorage.setItem('review-menu', id); } catch {}
+  }
+  (() => {
+    const host = $('gnb-menu');
+    for (const m of MENUS) {
+      const b = document.createElement('button');
+      b.className = 'gnb-item'; b.type = 'button'; b.dataset.menu = m.id;
+      b.innerHTML = ICONS[m.icon] || '';
+      b.append(document.createTextNode(m.label));
+      b.addEventListener('click', () => setMenu(m.id));
+      host.append(b);
+    }
+    let saved = '';
+    try { saved = localStorage.getItem('review-menu') || ''; } catch {}
+    setMenu(saved);
+  })();
+
+  const TYPES = ['가로형', '세로형', '정사각형'];
+  const ORDER = { lg: ['가로형', '세로형', '정사각형'], skt: ['세로형', '정사각형', '가로형'] };
+  const FONT = {
+    lg: { canvas: "'Malgun Gothic','Noto Sans KR',sans-serif", pptx: '맑은 고딕' },
+    skt: { canvas: "'Noto Sans KR','Malgun Gothic',sans-serif", pptx: 'Noto Sans KR' },
+  };
+
+  // 1단계 서비스 → 2단계 통신사. 통신사마다 쓰는 양식(form): lg = 16:9 슬라이드, skt = 배너 시트
+  const SERVICES = {
+    health: { label: '헬스케어', carriers: ['kt', 'lg'] },
+    cloud: { label: '안심 클라우드', carriers: ['skt', 'lg'] },
+  };
+  const CARRIERS = {
+    skt: { label: 'SKT', full: 'SKT', short: 'SKT', form: 'skt', desc: '제휴사 시트 · 규격별 1장' },
+    kt: { label: 'KT', full: 'KT', short: 'KT', form: 'lg', desc: '16:9 슬라이드 · 소재당 1장' },
+    lg: { label: 'LG U+', full: 'LG U+', short: 'LGU+', form: 'lg', desc: '16:9 슬라이드 · 소재당 1장' },
+  };
+
+  const state = { svc: 'health', car: 'lg', tab: 'lg', images: [], isSample: true, outputs: null };
+
+  // ---------- 날짜 ----------
+  const now = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  $('f-date').value = `${now.getFullYear()}. ${pad(now.getMonth() + 1)}. ${pad(now.getDate())}`;
+  function yymmdd() {
+    const m = $('f-date').value.match(/(\d{2,4})\D+(\d{1,2})\D+(\d{1,2})/);
+    if (!m) return `${String(now.getFullYear()).slice(2)}${pad(now.getMonth() + 1)}${pad(now.getDate())}`;
+    return `${m[1].slice(-2)}${pad(m[2])}${pad(m[3])}`;
+  }
+
+  // ---------- 이미지 분류 ----------
+  function detectType(name, w, h) {
+    if (/가로|landscape|horizontal/i.test(name)) return '가로형';
+    if (/세로|portrait|vertical/i.test(name)) return '세로형';
+    if (/정사각|정방|square/i.test(name)) return '정사각형';
+    const r = w / h;
+    if (r > 1.15) return '가로형';
+    if (r < 0.87) return '세로형';
+    return '정사각형';
+  }
+  function detectGroup(name) {
+    const base = name.replace(/^.*[\\/]/, '').replace(/\.[^.]+$/, '');
+    const parts = base.split(/[_\-\s]+/).filter((p) => p && !/가로|세로|정사각|정방|square|landscape|portrait|horizontal|vertical/i.test(p));
+    return parts.join('_') || base;
+  }
+  const collator = new Intl.Collator('ko', { numeric: true });
+  function sortedGroups() {
+    const map = new Map();
+    for (const im of state.images) {
+      if (!map.has(im.group)) map.set(im.group, []);
+      map.get(im.group).push(im);
+    }
+    return [...map.keys()].sort(collator.compare).map((k) => ({ key: k, items: map.get(k) }));
+  }
+  function orderedFor(tab) {
+    const ord = ORDER[tab];
+    return sortedGroups().map((g) => ({
+      key: g.key,
+      items: [...g.items].sort((a, b) => (ord.indexOf(a.type) - ord.indexOf(b.type)) || collator.compare(a.name, b.name)),
+    }));
+  }
+
+  function loadImage(dataUrl) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => reject(new Error('이미지를 열 수 없습니다'));
+      img.src = dataUrl;
+    });
+  }
+  async function toImageRecord(name, dataUrl, src = '') {
+    let img = await loadImage(dataUrl);
+    // PPTX에 넣을 수 있도록 jpg/png 외 형식은 png로 바꿈
+    if (!/^data:image\/(jpeg|png)/.test(dataUrl)) {
+      const c = document.createElement('canvas');
+      c.width = img.naturalWidth; c.height = img.naturalHeight;
+      c.getContext('2d').drawImage(img, 0, 0);
+      dataUrl = c.toDataURL('image/png');
+      img = await loadImage(dataUrl);
+    }
+    const w = img.naturalWidth, h = img.naturalHeight;
+    // 소재 묶음은 파일 이름으로만 정함: 다른 ZIP에 있어도 이름이 같으면 한 소재로 합침
+    return { name, src, w, h, dataUrl, img, type: detectType(name, w, h), group: detectGroup(name) };
+  }
+  const MIME = { jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', webp: 'image/webp', gif: 'image/gif' };
+  const IMG_RE = /\.(jpe?g|png|webp|gif)$/i;
+
+  function decodeName(bytes) {
+    try { return new TextDecoder('utf-8', { fatal: true }).decode(bytes); }
+    catch { return new TextDecoder('euc-kr').decode(bytes); }
+  }
+  const readAsDataURL = (file) => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = rej; r.readAsDataURL(file); });
+
+  async function ingest(fileList) {
+    const files = [...fileList];
+    if (!files.length) return;
+    setStatus('파일을 읽는 중…');
+    // 예시 이미지는 첫 업로드 때 치우고, 그 뒤로는 기존 목록 뒤에 추가
+    const existing = state.isSample ? [] : state.images;
+    const seen = new Set(existing.map((im) => `${im.src}/${im.name}`));
+    const out = [];
+    let skipped = 0;
+    const add = async (name, dataUrl, src) => {
+      if (seen.has(`${src}/${name}`)) { skipped++; return; }
+      seen.add(`${src}/${name}`);
+      out.push(await toImageRecord(name, dataUrl, src));
+    };
+    try {
+      for (const f of files) {
+        if (/\.zip$/i.test(f.name)) {
+          const src = f.name.replace(/\.zip$/i, '');
+          const zip = await JSZip.loadAsync(f, { decodeFileName: decodeName });
+          const entries = Object.values(zip.files).filter((e) => !e.dir && IMG_RE.test(e.name) && !/(^|\/)(__MACOSX|\.)/.test(e.name));
+          for (const e of entries) {
+            const ext = e.name.split('.').pop().toLowerCase();
+            const b64 = await e.async('base64');
+            await add(e.name.split('/').pop(), `data:${MIME[ext]};base64,${b64}`, src);
+          }
+        } else if (IMG_RE.test(f.name) || f.type.startsWith('image/')) {
+          await add(f.name, await readAsDataURL(f), '');
+        }
+      }
+    } catch (err) {
+      setStatus(`파일을 읽지 못했습니다: ${err.message || err}. ZIP이 손상되지 않았는지 확인해 주세요.`, true);
+      return;
+    }
+    if (!out.length) {
+      setStatus(skipped ? `이미 올린 파일이라 추가하지 않았습니다 (${skipped}개).` : '이미지 파일을 찾지 못했습니다. ZIP 안에 jpg·png 파일이 있는지 확인해 주세요.', true);
+      return;
+    }
+    state.images = existing.concat(out);
+    state.isSample = false;
+    state.outputs = null;
+    $('again').hidden = true; $('msg').textContent = '';
+    refresh();
+    if (skipped) setStatus(`${$('status').textContent} 이미 올린 파일 ${skipped}개는 건너뛰었습니다.`);
+  }
+
+  function clearAll() {
+    state.images = [];
+    state.isSample = false;
+    state.outputs = null;
+    $('again').hidden = true; $('msg').textContent = '';
+    refresh();
+  }
+
+  function setStatus(text, isErr) {
+    const el = $('status');
+    el.textContent = text;
+    el.className = 'status' + (isErr ? ' sample' : '');
+  }
+
+  // ---------- 예시 이미지 ----------
+  async function makeSamples() {
+    const specs = [];
+    for (const g of ['A', 'B']) for (const [t, w, h] of [['가로형', 1200, 628], ['세로형', 900, 1600], ['정사각형', 1200, 1200]]) specs.push({ g, t, w, h });
+    const out = [];
+    for (const s of specs) {
+      const c = document.createElement('canvas');
+      c.width = s.w; c.height = s.h;
+      const x = c.getContext('2d');
+      x.fillStyle = '#FFFFFF'; x.fillRect(0, 0, s.w, s.h);
+      x.fillStyle = s.g === 'A' ? '#E8F1FB' : '#EEF6EE';
+      x.fillRect(s.w * 0.06, s.h * 0.12, s.w * 0.88, s.h * 0.62);
+      x.fillStyle = '#1B2430';
+      x.font = `700 ${Math.round(Math.min(s.w, s.h) * 0.09)}px 'Noto Sans KR', sans-serif`;
+      x.textAlign = 'center'; x.textBaseline = 'middle';
+      x.fillText(`예시 소재 ${s.g}`, s.w / 2, s.h * 0.4);
+      x.font = `400 ${Math.round(Math.min(s.w, s.h) * 0.045)}px 'Noto Sans KR', sans-serif`;
+      x.fillText(`${s.t} ${s.w} × ${s.h}`, s.w / 2, s.h * 0.52);
+      x.textAlign = 'left'; x.font = `700 ${Math.round(Math.min(s.w, s.h) * 0.035)}px sans-serif`;
+      x.fillText('AD', s.w * 0.025, s.h * 0.04);
+      out.push(await toImageRecord(`${s.g}_${s.t}.jpg`, c.toDataURL('image/jpeg', 0.9)));
+    }
+    return out;
+  }
+
+  // ---------- 페이지 모델 (단위: pt) ----------
+  const T = (x, y, w, h, text, size, color, o = {}) => ({ k: 'text', x, y, w, h, text, size, color, ...o });
+
+  function buildLG() {
+    const v = (id) => $(id).value.trim();
+    const service = v('f-service');
+    const items = orderedFor('lg').flatMap((g) => g.items);
+    const pages = [];
+    const pageNo = (n) => T(880, 508, 32, 14, pad(n), 9, '8A919C', { align: 'right' });
+    pages.push({ w: 960, h: 540, bg: 'FFFFFF', els: [
+      T(67, 134, 600, 22, 'AD CREATIVE REVIEW REQUEST', 15, '0F6B5A', { bold: true }),
+      T(67, 178, 860, 46, v('lg-title'), 34, '1E2433', { bold: true }),
+      T(67, 255, 700, 26, `${service} ${items.length} 건, 총 ${items.length} 건`, 18, '6B7280'),
+      T(67, 416, 300, 22, v('f-company'), 15, '111111', { bold: true }),
+      T(67, 452, 300, 20, v('f-date'), 14, '6B7280'),
+      pageNo(1),
+    ] });
+    items.forEach((it, i) => {
+      const size = `${it.w} × ${it.h}`;
+      const bx = 48, by = 100, bw = 461, bh = 340;
+      const sc = Math.min(bw / it.w, bh / it.h);
+      const w = it.w * sc, h = it.h * sc;
+      pages.push({ w: 960, h: 540, bg: 'FFFFFF', els: [
+        T(48, 24, 400, 18, `${v('f-company')} · 광고 이미지 검수 요청`, 12, '8A919C'),
+        T(48, 48, 300, 34, '검수 소재', 25, '111111', { bold: true }),
+        { k: 'image', x: bx + (bw - w) / 2, y: by + (bh - h) / 2, w, h, im: it },
+        T(82, 463, 440, 16, `앱 노출 사이즈: ${v('lg-appsize')} / 제작 사이즈: ${size}`, 11, '6B7280'),
+        { k: 'table', x: 533, y: 101, colW: [115, 274], rowH: 311 / 9, size: 12, border: 'D0D5DB',
+          head: { fill: 'EEF1F4', color: '3A4350', bold: true }, cell: { fill: 'FFFFFF', color: '1E2433' },
+          rows: [
+            ['통신사', v('lg-carrier')], ['광고 매체', v('lg-media')], ['서비스명', service],
+            ['광고 지면', v('lg-placement')], ['노출 일정', v('lg-schedule')], ['제작 사이즈', size],
+            ['앱 노출 사이즈', v('lg-appsize')], ['검수 사유', v('lg-reason')], ['기타', v('lg-etc')],
+          ] },
+        pageNo(i + 2),
+      ] });
+    });
+    return pages;
+  }
+
+  // SKT 제휴사 시트: 규격(이미지 크기)마다 새 페이지, 3열 격자로 같은 크기로 축소해 배치
+  const SIZE_KINDS = { '1080x1374': '배너', '600x763': '앱 노출 사이즈' };
+  function sizeGroups() {
+    const map = new Map();
+    for (const im of state.images) {
+      const key = `${im.w}x${im.h}`;
+      if (!map.has(key)) map.set(key, []);
+      map.get(key).push(im);
+    }
+    const known = Object.keys(SIZE_KINDS);
+    return [...map.entries()]
+      .sort(([a, ia], [b, ib]) => {
+        const ka = known.indexOf(a), kb = known.indexOf(b);
+        if (ka !== kb) return (ka < 0 ? 99 : ka) - (kb < 0 ? 99 : kb);
+        return ib[0].w * ib[0].h - ia[0].w * ia[0].h;
+      })
+      .map(([key, items]) => ({
+        key, w: items[0].w, h: items[0].h, kind: SIZE_KINDS[key] || '소재',
+        items: [...items].sort((a, b) => collator.compare(a.group, b.group) || collator.compare(a.name, b.name)),
+      }));
+  }
+
+  function buildSKT() {
+    const service = $('f-service').value.trim();
+    const W = 1240, H = 1740, COLS = [70, 458, 846], CELL_W = 324, MAX_H = 470, ROW_GAP = 39, BOTTOM = H - 60;
+    const pages = [];
+    for (const sz of sizeGroups()) {
+      let cw = CELL_W, ch = CELL_W * sz.h / sz.w;
+      if (ch > MAX_H) { ch = MAX_H; cw = MAX_H * sz.w / sz.h; }
+      const scale = `${Math.round(cw / sz.w * 100)}%`;
+      const n = sz.items.length;
+      const sizeText = `${sz.w} × ${sz.h} px`;
+      const guide = $('skt-guide').value.trim().replaceAll('{규격}', sizeText).replaceAll('{비율}', scale);
+      let page = { w: W, h: H, bg: '111111', els: [] };
+      pages.push(page);
+      page.els.push(
+        T(70, 72, 700, 18, `${service} · ${sz.kind === '배너' ? '배너 소재' : sz.kind}`, 12, 'E8321F', { bold: true, spacing: 3 }),
+        T(70, 104, 900, 56, sz.kind === '배너' ? `배너 소재 ${n}종` : `${sz.kind} ${n}종`, 40, 'FFFFFF', { bold: true }),
+        { k: 'line', x1: 70, y1: 182, x2: 1170, y2: 182, color: 'E8321F', width: 2 },
+        T(70, 208, 200, 16, '규격', 10.5, '8A8A8A'),
+        T(70, 234, 220, 26, sizeText, 17, 'FFFFFF', { bold: true }),
+        T(290, 208, 80, 16, '수량', 10.5, '8A8A8A'),
+        T(290, 234, 80, 26, `${n}종`, 17, 'FFFFFF', { bold: true }),
+        T(381, 208, 80, 16, '안내', 10.5, '8A8A8A'),
+        T(381, 234, 600, 44, guide, 13.5, 'D9D9D9', { wrap: true, lineH: 1.6 }),
+      );
+      let y = 320;
+      sz.items.forEach((it, i) => {
+        const col = i % 3;
+        if (col === 0 && i > 0) y += ch + ROW_GAP;
+        if (col === 0 && y + ch > BOTTOM) { page = { w: W, h: H, bg: '111111', els: [] }; pages.push(page); y = 70; }
+        page.els.push({ k: 'image', x: COLS[col] + (CELL_W - cw) / 2, y, w: cw, h: ch, im: it });
+      });
+    }
+    return pages;
+  }
+
+  const build = () => (state.tab === 'lg' ? buildLG() : buildSKT());
+
+  // ---------- 캔버스 렌더 (미리보기·PDF 공용) ----------
+  function wrapLines(ctx, text, maxW) {
+    const lines = [];
+    for (const para of String(text).split('\n')) {
+      let line = '';
+      for (const ch of para) {
+        if (ctx.measureText(line + ch).width > maxW && line) { lines.push(line); line = ch.trimStart(); }
+        else line += ch;
+      }
+      lines.push(line);
+    }
+    return lines;
+  }
+
+  function draw(page, ctx, s, family) {
+    ctx.save();
+    ctx.fillStyle = '#' + page.bg; ctx.fillRect(0, 0, page.w * s, page.h * s);
+    for (const el of page.els) {
+      if (el.k === 'text') {
+        ctx.font = `${el.bold ? 700 : 400} ${el.size * s}px ${family}`;
+        ctx.textBaseline = 'top';
+        ctx.letterSpacing = el.spacing ? `${el.spacing * s}px` : '0px';
+        const runs = Array.isArray(el.text) ? el.text : [{ text: el.text }];
+        if (el.wrap) {
+          ctx.fillStyle = '#' + el.color;
+          wrapLines(ctx, runs.map((r) => r.text).join(''), el.w * s).forEach((ln, i) => ctx.fillText(ln, el.x * s, (el.y + i * el.size * (el.lineH || 1.3)) * s));
+        } else {
+          const total = runs.reduce((a, r) => a + ctx.measureText(r.text).width, 0);
+          let x = el.align === 'right' ? (el.x + el.w) * s - total : el.x * s;
+          for (const r of runs) { ctx.fillStyle = '#' + (r.color || el.color); ctx.fillText(r.text, x, el.y * s); x += ctx.measureText(r.text).width; }
+        }
+        ctx.letterSpacing = '0px';
+      } else if (el.k === 'line') {
+        ctx.strokeStyle = '#' + el.color; ctx.lineWidth = el.width * s;
+        ctx.beginPath(); ctx.moveTo(el.x1 * s, el.y1 * s); ctx.lineTo(el.x2 * s, el.y2 * s); ctx.stroke();
+      } else if (el.k === 'image') {
+        ctx.drawImage(el.im.img, el.x * s, el.y * s, el.w * s, el.h * s);
+      } else if (el.k === 'table') {
+        let y = el.y;
+        for (const row of el.rows) {
+          let x = el.x;
+          row.forEach((val, c) => {
+            const st = c === 0 ? el.head : el.cell;
+            const w = el.colW[c];
+            ctx.fillStyle = '#' + st.fill; ctx.fillRect(x * s, y * s, w * s, el.rowH * s);
+            ctx.strokeStyle = '#' + el.border; ctx.lineWidth = 0.75 * s; ctx.strokeRect(x * s, y * s, w * s, el.rowH * s);
+            ctx.font = `${st.bold ? 700 : 400} ${el.size * s}px ${family}`;
+            ctx.fillStyle = '#' + st.color; ctx.textBaseline = 'middle';
+            ctx.fillText(val, (x + 10) * s, (y + el.rowH / 2) * s, (w - 16) * s);
+            x += w;
+          });
+          y += el.rowH;
+        }
+      }
+    }
+    ctx.restore();
+  }
+
+  // ---------- 미리보기 ----------
+  let renderTimer = 0;
+  function refresh() {
+    renderList();
+    updateFilename();
+    clearTimeout(renderTimer);
+    renderTimer = setTimeout(renderPreview, 120);
+  }
+
+  function renderPreview() {
+    const pages = build();
+    const family = FONT[state.tab].canvas;
+    const host = $('pages');
+    host.className = `pages ${state.tab}`;
+    host.replaceChildren();
+    $('pv-title').textContent = `${SERVICES[state.svc].label} · ${CARRIERS[state.car].label} 미리보기`;
+    if (!state.images.length) {
+      const p = document.createElement('p');
+      p.className = 'empty';
+      p.textContent = 'ZIP을 올리면 여기에 문서 미리보기가 나타납니다.';
+      host.className = 'pages';
+      host.append(p);
+      $('pv-count').textContent = '';
+      return;
+    }
+    const s = state.tab === 'lg' ? 0.9 : 0.6;
+    pages.forEach((p, i) => {
+      const fig = document.createElement('figure');
+      fig.className = 'page';
+      const c = document.createElement('canvas');
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      c.width = Math.round(p.w * s * dpr); c.height = Math.round(p.h * s * dpr);
+      draw(p, c.getContext('2d'), s * dpr, family);
+      const cap = document.createElement('figcaption');
+      cap.textContent = `${i + 1} / ${pages.length}`;
+      fig.append(c, cap);
+      host.append(fig);
+    });
+    $('pv-count').textContent = `${pages.length}페이지 · 소재 ${state.images.length}개`;
+  }
+
+  function renderList() {
+    const t = $('list');
+    t.replaceChildren();
+    const head = t.insertRow();
+    for (const h of ['', '파일', '묶음', '구분', '크기(px)']) { const th = document.createElement('th'); th.textContent = h; head.append(th); }
+    for (const g of orderedFor(state.tab)) for (const im of g.items) {
+      const r = t.insertRow();
+      const img = document.createElement('img'); img.className = 'thumb'; img.src = im.dataUrl; img.alt = '';
+      r.insertCell().append(img);
+      r.insertCell().textContent = im.name;
+      r.insertCell().textContent = im.group;
+      const sel = document.createElement('select');
+      sel.setAttribute('aria-label', `${im.name} 구분`);
+      for (const ty of TYPES) { const o = new Option(ty, ty, false, ty === im.type); sel.add(o); }
+      sel.addEventListener('change', () => { im.type = sel.value; state.outputs = null; refresh(); });
+      r.insertCell().append(sel);
+      const n = r.insertCell(); n.className = 'num'; n.textContent = `${im.w} × ${im.h}`;
+    }
+    const groups = sortedGroups().length;
+    const zips = new Set(state.images.map((im) => im.src).filter(Boolean)).size;
+    $('clear').disabled = state.isSample || !state.images.length;
+    $('make').disabled = !state.images.length;
+    t.hidden = !state.images.length;
+    if (state.isSample) setStatus(`예시 이미지로 미리보는 중입니다. ZIP을 올리면 실제 소재로 바뀝니다.`, true);
+    else if (!state.images.length) setStatus('목록이 비어 있습니다. ZIP이나 이미지를 올려 주세요.');
+    else setStatus(`이미지 ${state.images.length}개 · 소재 ${groups}종${zips > 1 ? ` (ZIP ${zips}개)` : ''}을 읽었습니다. 구분이 틀리면 표에서 바꿔 주세요.`);
+  }
+
+  function filenames() {
+    const service = $('f-service').value.trim() || '서비스';
+    const company = $('f-company').value.trim() || '오션블루';
+    const d = yymmdd();
+    const base = state.tab === 'lg'
+      ? `${company}_이미지 검수 요청_${d}_${service.replace(/\s+/g, '')}_${CARRIERS[state.car].short}`
+      : `[${company}] ${service.replace(/\s+/g, '')} 제휴사 신규 소재 ${d}`;
+    const clean = base.replace(/[\\/:*?"<>|]/g, '');
+    return { pptx: `${clean}.pptx`, pdf: `${clean}.pdf` };
+  }
+  function updateFilename() { const f = filenames(); $('fname').textContent = `${f.pptx}\n${f.pdf}`; $('fname').style.whiteSpace = 'pre-line'; }
+
+  // ---------- PPTX ----------
+  async function makePptx(pages) {
+    const font = FONT[state.tab].pptx;
+    const pres = new PptxGenJS();
+    const { w, h } = pages[0];
+    pres.defineLayout({ name: 'DOC', width: w / 72, height: h / 72 });
+    pres.layout = 'DOC';
+    pres.author = $('f-company').value.trim();
+    pres.title = filenames().pptx.replace(/\.pptx$/, '');
+    const I = (pt) => pt / 72;
+    for (const p of pages) {
+      const sl = pres.addSlide();
+      sl.background = { color: p.bg };
+      for (const el of p.els) {
+        if (el.k === 'text') {
+          const base = { x: I(el.x), y: I(el.y), w: I(el.w), h: I(el.h), fontFace: font, fontSize: el.size, color: el.color, bold: !!el.bold,
+            margin: 0, valign: 'top', align: el.align || 'left', isTextBox: true, fit: 'none' };
+          if (el.spacing) base.charSpacing = el.spacing;
+          if (el.wrap) base.lineSpacingMultiple = el.lineH || 1.3;
+          const content = Array.isArray(el.text)
+            ? el.text.map((r) => ({ text: r.text, options: { color: r.color || el.color } }))
+            : el.text;
+          sl.addText(content, base);
+        } else if (el.k === 'line') {
+          sl.addShape(pres.shapes.LINE, { x: I(el.x1), y: I(el.y1), w: I(el.x2 - el.x1), h: 0, line: { color: el.color, width: el.width } });
+        } else if (el.k === 'image') {
+          sl.addImage({ data: el.im.dataUrl.replace(/^data:/, ''), x: I(el.x), y: I(el.y), w: I(el.w), h: I(el.h) });
+        } else if (el.k === 'table') {
+          const rows = el.rows.map((row) => row.map((val, c) => {
+            const st = c === 0 ? el.head : el.cell;
+            return { text: val, options: { fill: { color: st.fill }, color: st.color, bold: !!st.bold } };
+          }));
+          sl.addTable(rows, {
+            x: I(el.x), y: I(el.y), w: I(el.colW.reduce((a, b) => a + b, 0)), colW: el.colW.map(I), rowH: el.rows.map(() => I(el.rowH)),
+            fontFace: font, fontSize: el.size, valign: 'middle', margin: [0, I(6), 0, I(10)], // 표 여백은 inch 단위
+            border: { type: 'solid', pt: 0.75, color: el.border },
+          });
+        }
+      }
+    }
+    return pres.write({ outputType: 'blob' });
+  }
+
+  // ---------- PDF ----------
+  async function makePdf(pages) {
+    const { jsPDF } = window.jspdf;
+    const family = FONT[state.tab].canvas;
+    const orient = (p) => (p.w > p.h ? 'l' : 'p');
+    const doc = new jsPDF({ unit: 'pt', format: [pages[0].w, pages[0].h], orientation: orient(pages[0]), compress: true });
+    const S = 2;
+    pages.forEach((p, i) => {
+      if (i) doc.addPage([p.w, p.h], orient(p));
+      const c = document.createElement('canvas');
+      c.width = p.w * S; c.height = p.h * S;
+      draw(p, c.getContext('2d'), S, family);
+      doc.addImage(c.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, p.w, p.h, undefined, 'FAST');
+    });
+    return doc.output('blob');
+  }
+
+  // ---------- 저장 ----------
+  async function saveFile(filename, blob) {
+    if (typeof window.claude?.use === 'function') {
+      const dl = await window.claude.use('downloads');
+      if (!dl) throw { code: 'unavailable' };
+      return dl.save({ filename, data: blob });
+    }
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = filename;
+    document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    return { status: 'saved' };
+  }
+  const ERR = {
+    declined: '저장을 취소했습니다.',
+    rate_limited: '저장 창이 이미 열려 있습니다. 잠시 후 다시 눌러 주세요.',
+    unavailable: '이 화면에서는 파일 저장을 쓸 수 없습니다.',
+  };
+  async function trySave(kind) {
+    const f = filenames();
+    try {
+      await saveFile(f[kind], state.outputs[kind]);
+      return true;
+    } catch (e) {
+      setMsg(`${kind.toUpperCase()}: ${ERR[e?.code] || ERR.unavailable}`, true);
+      return false;
+    }
+  }
+  function setMsg(t, err) { $('msg').textContent = t; $('msg').className = 'msg' + (err ? ' err' : ''); }
+
+  $('make').addEventListener('click', async () => {
+    const btn = $('make');
+    btn.disabled = true;
+    setMsg('PPTX와 PDF를 만드는 중…');
+    try {
+      await fontsReady;
+      const pages = build();
+      const [pptx, pdf] = await Promise.all([makePptx(pages), makePdf(pages)]);
+      state.outputs = { pptx, pdf };
+      $('again').hidden = false;
+      setMsg(`${pages.length}페이지 문서를 만들었습니다. 저장 창에서 확인을 눌러 주세요.`);
+      const ok1 = await trySave('pptx');
+      const ok2 = await trySave('pdf');
+      if (ok1 && ok2) setMsg(`PPTX와 PDF를 저장했습니다 (${pages.length}페이지).`);
+    } catch (e) {
+      setMsg(`문서를 만들지 못했습니다: ${e?.message || e}`, true);
+    } finally {
+      btn.disabled = false;
+    }
+  });
+  $('save-pptx').addEventListener('click', () => state.outputs && trySave('pptx').then((ok) => ok && setMsg('PPTX를 저장했습니다.')));
+  $('save-pdf').addEventListener('click', () => state.outputs && trySave('pdf').then((ok) => ok && setMsg('PDF를 저장했습니다.')));
+
+  // ---------- 사용 매뉴얼 ----------
+  const MANUAL_PAGES = 8;
+  const MANUAL_NAME = '광고 소재 검수 요청서_사용 매뉴얼.pdf';
+  const manual = $('manual');
+  function manualMsg(t, err) { const m = $('manual-msg'); m.hidden = !t; m.textContent = t; m.className = 'msg' + (err ? ' err' : ''); }
+  $('open-manual').addEventListener('click', () => {
+    const body = $('manual-body');
+    if (!body.children.length) {
+      for (let i = 1; i <= MANUAL_PAGES; i++) {
+        const img = document.createElement('img');
+        img.src = `manual/page-${i}.png`; img.alt = `사용 매뉴얼 ${i}쪽`; img.loading = 'lazy';
+        body.append(img);
+      }
+    }
+    manualMsg('');
+    manual.showModal();
+  });
+  $('manual-close').addEventListener('click', () => manual.close());
+  manual.addEventListener('click', (e) => { if (e.target === manual) manual.close(); });
+  $('manual-save').addEventListener('click', async () => {
+    try {
+      const res = await fetch('manual/manual.pdf');
+      if (!res.ok) throw new Error('not found');
+      await saveFile(MANUAL_NAME, await res.blob());
+      manualMsg('매뉴얼 PDF를 저장했습니다.');
+    } catch (e) {
+      manualMsg(e?.code ? (ERR[e.code] || ERR.unavailable) : '매뉴얼 파일을 불러오지 못했습니다. 페이지를 새로고침한 뒤 다시 눌러 주세요.', true);
+    }
+  });
+
+  // ---------- 탭 (서비스 → 통신사) ----------
+  function setView(svc, car) {
+    if (!SERVICES[svc]) svc = 'health';
+    if (!SERVICES[svc].carriers.includes(car)) car = SERVICES[svc].carriers.includes(state.car) ? state.car : SERVICES[svc].carriers[0];
+    const svcChanged = svc !== state.svc || !$('f-service').value.trim();
+    state.svc = svc; state.car = car; state.tab = CARRIERS[car].form;
+    state.outputs = null;
+    $('again').hidden = true; setMsg('');
+    if (svcChanged) $('f-service').value = SERVICES[svc].label;
+    $('lg-carrier').value = CARRIERS[car].full;
+
+    for (const b of document.querySelectorAll('#svc-tabs .tab')) b.setAttribute('aria-selected', String(b.dataset.svc === svc));
+    const host = $('car-tabs');
+    host.replaceChildren();
+    for (const c of SERVICES[svc].carriers) {
+      const b = document.createElement('button');
+      b.className = 'tab'; b.setAttribute('role', 'tab'); b.id = `car-${c}`; b.dataset.car = c;
+      b.setAttribute('aria-selected', String(c === car));
+      b.textContent = CARRIERS[c].label;
+      const sm = document.createElement('small'); sm.textContent = CARRIERS[c].desc; b.append(sm);
+      b.addEventListener('click', () => go(state.svc, c));
+      host.append(b);
+    }
+    $('opts-lg').hidden = state.tab !== 'lg';
+    $('opts-skt').hidden = state.tab !== 'skt';
+    $('opts-lg-title').textContent = `슬라이드 양식 항목 (${CARRIERS[car].label})`;
+    try { localStorage.setItem('review-view', `${svc}-${car}`); } catch {}
+    refresh();
+  }
+  function go(svc, car) {
+    setView(svc, car);
+    history.replaceState(null, '', `#${state.svc}-${state.car}`);
+  }
+  for (const b of document.querySelectorAll('#svc-tabs .tab')) b.addEventListener('click', () => go(b.dataset.svc, state.car));
+
+  // ---------- 입력 ----------
+  const drop = $('drop'), fileInput = $('file');
+  drop.addEventListener('click', () => fileInput.click());
+  drop.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); } });
+  fileInput.addEventListener('change', () => { ingest(fileInput.files); fileInput.value = ''; });
+  $('clear').addEventListener('click', clearAll);
+  drop.addEventListener('dragover', (e) => { e.preventDefault(); drop.classList.add('over'); });
+  drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+  drop.addEventListener('drop', (e) => { e.preventDefault(); drop.classList.remove('over'); ingest(e.dataTransfer.files); });
+  for (const el of document.querySelectorAll('input[type="text"], textarea')) el.addEventListener('input', () => { state.outputs = null; refresh(); });
+
+  // ---------- 시작 ----------
+  // 글꼴이 늦게 와도 3초 뒤에는 기본 글꼴로 진행
+  const fontsReady = Promise.race([
+    Promise.all([document.fonts.load("400 16px 'Noto Sans KR'", '가'), document.fonts.load("700 16px 'Noto Sans KR'", '가')]),
+    new Promise((r) => setTimeout(r, 3000)),
+  ]).catch(() => {});
+  let start = location.hash.replace('#', '');
+  if (!/^(health|cloud)-(skt|kt|lg)$/.test(start)) { try { start = localStorage.getItem('review-view') || ''; } catch { start = ''; } }
+  const [startSvc, startCar] = (start || 'health-lg').split('-');
+  state.svc = '';
+  (async () => {
+    await fontsReady;
+    state.images = await makeSamples();
+    setView(startSvc, startCar);
+  })();
+  window.__review = { state, build, makePptx, makePdf, ingest };
+})();
+</script>
