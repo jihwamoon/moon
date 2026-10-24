@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>업무</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -123,6 +124,31 @@ figure.page figcaption { font-size: 12px; color: var(--muted); font-variant-nume
 .box-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-block: -4px; }
 .empty { color: var(--muted); border: 1.5px dashed var(--line); border-radius: 8px; padding: 48px 16px; text-align: center; margin: 0; }
 .btn.small { padding: 5px 12px; font-size: 13px; }
+/* 푸시 문구 작성 */
+input[type="date"], input[type="month"] { width: 100%; font: inherit; font-size: 13.5px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 9px; }
+.p-date-add { flex-wrap: nowrap; }
+.p-date-add input { flex: 1; min-width: 0; }
+.p-date-add .btn { flex: none; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips:empty { display: none; }
+.chip { display: inline-flex; align-items: center; gap: 2px; padding: 3px 4px 3px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.chip button { appearance: none; border: 0; background: transparent; color: var(--muted); cursor: pointer; font: inherit; font-size: 14px; line-height: 1; padding: 2px 6px; border-radius: 999px; }
+.chip button:hover { background: var(--line); color: var(--ink); }
+table.list td.wrap { white-space: normal; min-width: 140px; }
+.p-rows { display: flex; flex-direction: column; gap: 12px; }
+.p-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.p-card-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; }
+.p-card-head strong { font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.p-card-head span { color: var(--muted); font-size: 12.5px; }
+.p-label { display: flex; justify-content: space-between; gap: 8px; }
+.p-label span { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.p-card textarea { min-height: 44px; }
+.p-cell { margin: 0; padding: 8px 10px; background: var(--bg); border: 1px dashed var(--line); border-radius: 6px; font-family: var(--ui); font-size: 12.5px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--ink); }
+.p-check { font-size: 12.5px; margin: 0; color: var(--accent); }
+.p-check.bad { color: var(--warn); }
+.p-last { border-top: 1px solid var(--line); padding-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.p-last strong { display: block; font-size: 13px; font-weight: 600; }
+.p-last span { display: block; font-size: 12px; color: var(--muted); font-family: var(--mono); white-space: pre-line; overflow-wrap: anywhere; }
 dialog.manual { width: min(920px, calc(100vw - 32px)); height: min(92vh, 1400px); padding: 0; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); }
 dialog.manual[open] { display: flex; flex-direction: column; }
 dialog.manual::backdrop { background: rgba(10, 20, 16, .55); }
@@ -132,6 +158,32 @@ dialog.manual::backdrop { background: rgba(10, 20, 16, .55); }
 .manual-head .msg { width: 100%; }
 .manual-body { overflow-y: auto; padding: 16px; background: var(--bg); display: flex; flex-direction: column; gap: 14px; flex: 1; min-height: 0; }
 .manual-body img { width: 100%; height: auto; display: block; background: #fff; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 2px 10px var(--sheet-shadow); }
+/* 대외민원 사실확인서 작성 */
+.c-example { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--warn); border-radius: 8px; color: var(--warn); font-size: 12.5px; }
+.c-link { appearance: none; border: 0; background: none; padding: 0; font: inherit; color: var(--accent); text-decoration: underline; cursor: pointer; }
+.c-req { color: var(--warn); font-weight: 600; }
+.c-hint { color: var(--muted); font-size: 11.5px; }
+.c-where { font-size: 11.5px; color: var(--muted); }
+input.c-mono, textarea.c-mono { font-family: var(--mono); font-size: 12.5px; }
+textarea.c-tall { min-height: 92px; }
+input.c-missing, textarea.c-missing { border-color: var(--warn); }
+.c-state { display: flex; flex-wrap: wrap; gap: 6px; }
+.c-pill { display: inline-flex; align-items: center; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: var(--accent-soft); color: var(--accent); }
+.c-pill.warn { background: var(--bg); color: var(--warn); border: 1px solid var(--line); }
+.c-miss { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.c-miss:empty { display: none; }
+.c-miss button { appearance: none; border: 1px solid var(--line); background: var(--bg); color: var(--warn); font: inherit; font-size: 12px; padding: 2px 8px; border-radius: 4px; cursor: pointer; }
+.c-drop { display: flex; align-items: center; gap: 12px; text-align: left; flex-wrap: wrap; }
+.c-drop img { max-width: 150px; max-height: 84px; border: 1px solid var(--line); border-radius: 4px; background: #fff; }
+.c-drop > span { flex: 1 1 180px; min-width: 0; }
+.c-pv-box { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.c-pv-hold { position: relative; overflow: hidden; }
+.c-pv-scale { position: absolute; top: 0; left: 0; transform-origin: top left; }
+.c-pv-scale .docx-wrapper { background: transparent !important; padding: 16px !important; }
+.c-pv-scale .docx-wrapper > section.docx { box-shadow: 0 2px 10px var(--sheet-shadow) !important; margin-bottom: 16px !important; }
+#c-pdf-stage { position: fixed; left: -14000px; top: 0; width: 1000px; pointer-events: none; }
+#c-pdf-stage .docx-wrapper { background: #fff !important; padding: 0 !important; }
+#c-pdf-stage section.docx { box-shadow: none !important; margin: 0 0 40px 0 !important; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 
@@ -148,7 +200,7 @@ dialog.manual::backdrop { background: rgba(10, 20, 16, .55); }
     <div>
       <div class="title-row">
         <h1>광고 소재 검수 요청서</h1>
-        <button class="btn ghost small" id="open-manual" aria-haspopup="dialog">사용 매뉴얼</button>
+        <button class="btn ghost small" id="open-manual" data-manual="review" aria-haspopup="dialog">사용 매뉴얼</button>
       </div>
       <p class="sub">소재 이미지 ZIP을 올리면 크기를 재서 통신사 양식에 맞춰 넣고, 수정 가능한 PPTX와 PDF를 함께 만듭니다.</p>
     </div>
@@ -217,6 +269,205 @@ dialog.manual::backdrop { background: rgba(10, 20, 16, .55); }
   </div>
 </div>
 </section>
+
+<section class="view" id="view-push" aria-label="푸시 문구 작성" hidden>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="title-row">
+        <h1>푸시 문구 작성</h1>
+        <button class="btn ghost small" data-manual="push" aria-haspopup="dialog">사용 매뉴얼</button>
+      </div>
+      <p class="sub">통신사를 고르고 발송일과 지난 발송계획을 넣으면, 그 통신사 규칙에 맞춰 회차별 새 문구를 쓰고 통신사 양식 그대로 엑셀로 저장합니다.</p>
+    </div>
+    <div class="tabsets">
+      <div class="tabs" role="tablist" aria-label="통신사" id="p-car-tabs"></div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div class="panel">
+      <section class="box">
+        <h2>발송 일정</h2>
+        <div class="fields">
+          <div class="field"><label for="p-service">서비스명</label><input type="text" id="p-service" value="헬스케어"></div>
+          <div class="field"><label for="p-month">발송 월</label><input type="month" id="p-month"></div>
+        </div>
+        <div id="p-sched-wrap" hidden>
+          <div class="drop" id="p-sched-drop" tabindex="0" role="button" aria-label="스케줄 이미지 선택">
+            <strong>스케줄 이미지를 끌어다 놓기</strong>
+            서비스명이 들어간 날짜를 찾아 아래 발송일에 넣습니다
+          </div>
+          <input type="file" id="p-sched-file" accept="image/png,image/jpeg,image/webp" hidden>
+        </div>
+        <div class="row p-date-add"><input type="date" id="p-date" aria-label="추가할 발송일"><button class="btn ghost small" id="p-date-add" type="button">날짜 추가</button></div>
+        <div class="chips" id="p-dates"></div>
+        <p class="status" id="p-sched-status"></p>
+      </section>
+
+      <section class="box">
+        <div class="box-head"><h2 id="p-past-title">지난 발송계획</h2><button class="btn ghost small" id="p-past-clear" disabled>전체 지우기</button></div>
+        <div class="drop" id="p-past-drop" tabindex="0" role="button" aria-label="지난 발송계획 엑셀 선택">
+          <strong id="p-past-drop-title">지난 발송계획 엑셀을 끌어다 놓기</strong>
+          여러 개 올릴 수 있습니다 (xlsx) · 가장 최근 파일의 양식과 항목 값을 그대로 씁니다
+        </div>
+        <input type="file" id="p-past-file" accept=".xlsx" multiple hidden>
+        <p class="status" id="p-past-status"></p>
+        <div class="files"><table class="list" id="p-past-list" hidden></table></div>
+      </section>
+
+      <section class="box">
+        <h2 id="p-form-title">양식 항목</h2>
+        <div class="fields" id="p-form-fields"></div>
+        <p class="status" id="p-form-note"></p>
+      </section>
+
+      <section class="box">
+        <h2>작성 조건</h2>
+        <div class="fields">
+          <div class="field full"><label for="p-optout">수신거부 문구</label><input type="text" id="p-optout" placeholder="지난 발송계획을 올리면 그 문구를 가져옵니다"></div>
+          <div class="field full"><label for="p-rules">발송 규칙</label><textarea id="p-rules" rows="6"></textarea></div>
+          <div class="field full"><label for="p-extra">추가 요청 (선택)</label><textarea id="p-extra" placeholder="예: 연말 분위기로, 점심 산책 소재를 한 번 넣어 줘"></textarea></div>
+        </div>
+      </section>
+
+      <section class="box out">
+        <h2>만들기</h2>
+        <p class="fname" id="p-fname"></p>
+        <div class="row">
+          <button class="btn primary" id="p-gen" disabled>문구 만들기</button>
+          <button class="btn ghost" id="p-stop" hidden>중지</button>
+        </div>
+        <button class="btn ghost" id="p-save" disabled>엑셀 저장</button>
+        <p class="msg" id="p-msg" aria-live="polite"></p>
+        <div class="p-last" id="p-last" hidden>
+          <div><strong>최근 저장한 엑셀</strong><span id="p-last-info"></span></div>
+          <div class="row">
+            <button class="btn ghost small" id="p-last-dl" type="button">다시 받기</button>
+            <button class="btn ghost small" id="p-last-load" type="button">문구 불러오기</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="preview">
+      <div class="preview-head"><h2 id="p-rows-title">회차별 문구</h2><span id="p-count"></span></div>
+      <div class="p-rows" id="p-rows"></div>
+    </section>
+  </div>
+</div>
+</section>
+
+<section class="view" id="view-complaint" aria-label="대외민원 사실확인서 작성" hidden>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>대외민원 사실확인서 작성</h1>
+      <p class="sub">통신사를 고르고 민원 건마다 바뀌는 값만 넣으면, 그 통신사 사실확인서 양식에 채워 DOCX와 PDF로 저장합니다.</p>
+    </div>
+    <div class="tabsets">
+      <div class="tabs" role="tablist" aria-label="통신사" id="c-car-tabs"></div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div class="panel">
+      <div class="c-example" id="c-example">
+        <span>예시 값이 채워져 있습니다. 실제 민원 건의 값으로 바꿔 주세요.</span>
+        <button type="button" class="c-link" id="c-clear">입력값 모두 지우기</button>
+      </div>
+
+      <section class="box">
+        <div class="box-head"><h2>표지 · 민원인 정보</h2><span class="c-where">표지, 민원 내역 정리</span></div>
+        <div class="fields">
+          <div class="field"><label for="c-name">성명 <span class="c-req">*</span></label><input type="text" id="c-name" data-req="성명"></div>
+          <div class="field"><label for="c-writeDate">작성 일자 <span class="c-req">*</span></label><input type="date" id="c-writeDate" data-req="작성 일자"></div>
+          <div class="field"><label for="c-age">연령</label><input type="text" id="c-age" list="c-dl-unknown"></div>
+          <div class="field"><label for="c-gender">성별</label><input type="text" id="c-gender" list="c-dl-gender"></div>
+          <div class="field full"><label for="c-phone">연락처 <span class="c-req">*</span></label><input type="text" id="c-phone" class="c-mono" data-req="연락처" placeholder="010-0000-0000"></div>
+          <div class="field full"><label for="c-channel">접수 방법</label><input type="text" id="c-channel" list="c-dl-channel"></div>
+        </div>
+      </section>
+
+      <section class="box">
+        <div class="box-head"><h2>가입 상태 및 이력</h2><span class="c-where">민원 내역 정리, 사실관계 표</span></div>
+        <div class="fields">
+          <div class="field"><label for="c-status">현재 가입 상태 <span class="c-req">*</span></label><input type="text" id="c-status" list="c-dl-status" data-req="현재 가입 상태"></div>
+          <div class="field"><label for="c-history">가입 이력</label><input type="text" id="c-history" list="c-dl-history"></div>
+          <div class="field"><label for="c-joinAt">가입 일시 <span class="c-req">*</span></label><input type="text" id="c-joinAt" class="c-mono" data-req="가입 일시" placeholder="2026-05-18 13:54:23"></div>
+          <div class="field"><label for="c-cancelAt">해지 일시</label><input type="text" id="c-cancelAt" class="c-mono" placeholder="2026-08-11 10:58:01"></div>
+          <div class="field"><label for="c-joinRoute">가입 경로 <span class="c-req">*</span></label><input type="text" id="c-joinRoute" list="c-dl-join" data-req="가입 경로"></div>
+          <div class="field"><label for="c-cancelRoute">해지 경로</label><input type="text" id="c-cancelRoute" list="c-dl-cancel"></div>
+          <div class="field"><label for="c-refundYn">환불 여부</label><input type="text" id="c-refundYn" list="c-dl-refund"></div>
+          <div class="field"><label for="c-refundAmt">환불 금액</label><input type="text" id="c-refundAmt" class="c-mono" placeholder="6,103원"></div>
+        </div>
+      </section>
+
+      <section class="box">
+        <div class="box-head"><h2>민원 내용</h2><span class="c-where">민원 내역 정리 · 민원 내용</span></div>
+        <div class="fields">
+          <div class="field full"><label for="c-facts">1. 사실관계 <span class="c-hint">한 줄에 한 항목, 앞에 '-'가 붙습니다</span></label><textarea id="c-facts" class="c-tall"></textarea></div>
+          <div class="field full"><label for="c-claims">2. 민원인의 주장 <span class="c-req">*</span> <span class="c-hint">한 줄에 한 항목</span></label><textarea id="c-claims" class="c-tall" data-req="민원인의 주장"></textarea></div>
+        </div>
+      </section>
+
+      <section class="box">
+        <div class="box-head"><h2>사실관계 표 · 처리 이력</h2><span class="c-where">민원 내용 답변</span></div>
+        <div class="fields">
+          <div class="field full"><label for="c-authAt">가입 본인 인증 일시 <span class="c-req">*</span></label><input type="text" id="c-authAt" class="c-mono" data-req="가입 본인 인증 일시" placeholder="2026-05-18 13:54:16"></div>
+          <div class="field full"><label for="c-refundLog">환불이력 <span class="c-hint">여러 줄 가능</span></label><textarea id="c-refundLog" class="c-mono"></textarea></div>
+          <div class="field full"><label for="c-csLog">서비스사 고객센터 이력 <span class="c-hint">한 줄에 한 건</span></label><textarea id="c-csLog" class="c-mono"></textarea></div>
+        </div>
+        <p class="status">가입·해지 일시와 경로, 현재 가입 상태는 위에 넣은 값이 이 표에도 같이 들어갑니다.</p>
+      </section>
+
+      <section class="box">
+        <div class="box-head"><h2>본인 인증 증빙</h2><span class="c-where">증빙 자료 · 본인 인증</span></div>
+        <div class="fields">
+          <div class="field"><label for="c-smsAt">인증문자 발송일시 <span class="c-req">*</span></label><input type="text" id="c-smsAt" class="c-mono" data-req="인증문자 발송일시" placeholder="2026-05-18 13:53:51"></div>
+          <div class="field"><label for="c-smsCode">인증번호 <span class="c-req">*</span></label><input type="text" id="c-smsCode" class="c-mono" data-req="인증번호" placeholder="4853" inputmode="numeric"></div>
+        </div>
+        <div class="drop c-drop" id="c-drop" tabindex="0" role="button" aria-label="인증 이력 캡처 첨부">
+          <img id="c-auth-thumb" alt="첨부한 인증 이력 캡처" hidden>
+          <span><strong id="c-drop-title">인증 이력 캡처를 끌어다 놓기</strong><span id="c-drop-sub">클릭해서 고르거나, 이 칸을 누르고 Ctrl+V로 붙여넣기. 첨부하지 않으면 '인증 이력 캡처 미첨부' 안내 이미지가 들어갑니다.</span></span>
+        </div>
+        <input type="file" id="c-auth-file" accept="image/*" hidden>
+        <button type="button" class="c-link" id="c-auth-clear" hidden>첨부 이미지 빼기</button>
+      </section>
+
+      <section class="box out">
+        <h2>내보내기</h2>
+        <div class="c-state" id="c-state"></div>
+        <ul class="c-miss" id="c-miss"></ul>
+        <p class="fname" id="c-fname"></p>
+        <div class="row">
+          <button class="btn primary" id="c-save-docx" type="button">DOCX 저장</button>
+          <button class="btn ghost" id="c-save-pdf" type="button">PDF 저장</button>
+        </div>
+        <p class="msg" id="c-msg" aria-live="polite"></p>
+        <p class="status">PDF는 오른쪽 미리보기를 페이지로 옮겨 만듭니다. 대외 제출본은 DOCX를 Word에서 열어 PDF로 저장하면 원본과 똑같이 나옵니다. KT·LG U+ 양식에 남아 있던 'SKT' 해지 안내 문구는 선택한 통신사명으로 바뀝니다.</p>
+      </section>
+    </div>
+
+    <section class="preview">
+      <div class="preview-head"><h2 id="c-pv-title">미리보기</h2><span id="c-pv-info"></span></div>
+      <div class="c-pv-box" id="c-pv-box">
+        <div class="c-pv-hold" id="c-pv-hold"><div class="c-pv-scale" id="c-pv-scale"></div></div>
+        <p class="empty" id="c-pv-empty">양식을 불러오는 중입니다.</p>
+      </div>
+    </section>
+  </div>
+</div>
+<div id="c-pdf-stage" aria-hidden="true"></div>
+<datalist id="c-dl-unknown"><option value="알 수 없음"></option></datalist>
+<datalist id="c-dl-gender"><option value="알 수 없음"></option><option value="남"></option><option value="여"></option></datalist>
+<datalist id="c-dl-channel"><option value="방송미디어통신위원회 민원 이관"></option><option value="통신사 이메일 CS"></option><option value="통신사 고객센터 이관"></option><option value="당사 고객센터"></option></datalist>
+<datalist id="c-dl-status"><option value="비회원"></option><option value="회원(유료 이용 중)"></option><option value="해지"></option></datalist>
+<datalist id="c-dl-history"><option value="유료가입 이력 있음"></option><option value="유료가입 이력 없음"></option></datalist>
+<datalist id="c-dl-join"><option value="인터넷 광고(구글)"></option><option value="GDN 외부광고"></option><option value="빌레터 앱 인입"></option><option value="PASS 앱 인입"></option></datalist>
+<datalist id="c-dl-cancel"><option value="통신사 고객센터"></option><option value="당사 고객센터(ARS)"></option><option value="해지 전용 웹페이지"></option><option value="앱 내 해지 메뉴"></option></datalist>
+<datalist id="c-dl-refund"><option value="환불 완료"></option><option value="환불 진행 중"></option><option value="환불 대상 아님(당일 해지)"></option><option value="미환불"></option></datalist>
+</section>
 </main>
 </div>
 
@@ -243,9 +494,13 @@ dialog.manual::backdrop { background: rgba(10, 20, 16, .55); }
   // 메뉴를 늘릴 때는 여기에 항목을 추가하고, 같은 id로 <section class="view" id="view-{id}">를 만든다
   const ICONS = {
     check: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m8 12 3 3 5-6"/></svg>',
+    push: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6.5 2 6.5H4S6 14 6 9"/><path d="M10 19a2 2 0 0 0 4 0"/></svg>',
+    doc: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>',
   };
   const MENUS = [
     { id: 'review', label: '광고 이미지 검수', icon: 'check' },
+    { id: 'push', label: '푸시 문구 작성', icon: 'push' },
+    { id: 'complaint', label: '대외민원 사실확인서 작성', icon: 'doc' },
   ];
   function setMenu(id) {
     if (!MENUS.some((m) => m.id === id)) id = MENUS[0].id;
@@ -257,6 +512,7 @@ dialog.manual::backdrop { background: rgba(10, 20, 16, .55); }
       if (b.dataset.menu === id) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
     }
     try { localStorage.setItem('review-menu', id); } catch {}
+    document.dispatchEvent(new CustomEvent('menuchange', { detail: id }));
   }
   (() => {
     const host = $('gnb-menu');
@@ -802,29 +1058,39 @@ dialog.manual::backdrop { background: rgba(10, 20, 16, .55); }
   $('save-pdf').addEventListener('click', () => state.outputs && trySave('pdf').then((ok) => ok && setMsg('PDF를 저장했습니다.')));
 
   // ---------- 사용 매뉴얼 ----------
-  const MANUAL_PAGES = 8;
-  const MANUAL_NAME = '광고 소재 검수 요청서_사용 매뉴얼.pdf';
+  // 메뉴마다 매뉴얼 폴더가 따로 있음. 버튼의 data-manual 값으로 고름
+  const MANUALS = {
+    review: { dir: 'manual', pages: 8, title: '광고 소재 검수 요청서 사용 매뉴얼', name: '광고 소재 검수 요청서_사용 매뉴얼.pdf' },
+    push: { dir: 'manual-push', pages: 6, title: '푸시 문구 작성 사용 매뉴얼', name: '푸시 문구 작성_사용 매뉴얼.pdf' },
+  };
+  let openManualKey = '';
   const manual = $('manual');
   function manualMsg(t, err) { const m = $('manual-msg'); m.hidden = !t; m.textContent = t; m.className = 'msg' + (err ? ' err' : ''); }
-  $('open-manual').addEventListener('click', () => {
+  for (const btn of document.querySelectorAll('[data-manual]')) btn.addEventListener('click', () => {
+    const key = MANUALS[btn.dataset.manual] ? btn.dataset.manual : 'review', mm = MANUALS[key];
     const body = $('manual-body');
-    if (!body.children.length) {
-      for (let i = 1; i <= MANUAL_PAGES; i++) {
+    if (openManualKey !== key) {
+      body.replaceChildren();
+      for (let i = 1; i <= mm.pages; i++) {
         const img = document.createElement('img');
-        img.src = `manual/page-${i}.png`; img.alt = `사용 매뉴얼 ${i}쪽`; img.loading = 'lazy';
+        img.src = `${mm.dir}/page-${i}.png`; img.alt = `사용 매뉴얼 ${i}쪽`; img.loading = 'lazy';
         body.append(img);
       }
+      body.scrollTop = 0;
+      openManualKey = key;
     }
+    $('manual-title').textContent = mm.title;
     manualMsg('');
     manual.showModal();
   });
   $('manual-close').addEventListener('click', () => manual.close());
   manual.addEventListener('click', (e) => { if (e.target === manual) manual.close(); });
   $('manual-save').addEventListener('click', async () => {
+    const mm = MANUALS[openManualKey] || MANUALS.review;
     try {
-      const res = await fetch('manual/manual.pdf');
+      const res = await fetch(`${mm.dir}/manual.pdf`);
       if (!res.ok) throw new Error('not found');
-      await saveFile(MANUAL_NAME, await res.blob());
+      await saveFile(mm.name, await res.blob());
       manualMsg('매뉴얼 PDF를 저장했습니다.');
     } catch (e) {
       manualMsg(e?.code ? (ERR[e.code] || ERR.unavailable) : '매뉴얼 파일을 불러오지 못했습니다. 페이지를 새로고침한 뒤 다시 눌러 주세요.', true);
@@ -875,7 +1141,7 @@ dialog.manual::backdrop { background: rgba(10, 20, 16, .55); }
   drop.addEventListener('dragover', (e) => { e.preventDefault(); drop.classList.add('over'); });
   drop.addEventListener('dragleave', () => drop.classList.remove('over'));
   drop.addEventListener('drop', (e) => { e.preventDefault(); drop.classList.remove('over'); ingest(e.dataTransfer.files); });
-  for (const el of document.querySelectorAll('input[type="text"], textarea')) el.addEventListener('input', () => { state.outputs = null; refresh(); });
+  for (const el of document.querySelectorAll('#view-review input[type="text"], #view-review textarea')) el.addEventListener('input', () => { state.outputs = null; refresh(); });
 
   // ---------- 시작 ----------
   // 글꼴이 늦게 와도 3초 뒤에는 기본 글꼴로 진행
@@ -895,3 +1161,1267 @@ dialog.manual::backdrop { background: rgba(10, 20, 16, .55); }
   window.__review = { state, build, makePptx, makePdf, ingest };
 })();
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+<script>
+// ---------- 푸시 문구 작성 ----------
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const pad = (n) => String(n).padStart(2, '0');
+  const WD = '일월화수목금토';
+  const range = (a, b) => Array.from({ length: b - a + 1 }, (_, i) => a + i);
+  const XLSX_MIME = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+  const EMOJI = /\p{Extended_Pictographic}/u;
+  const KT_TARGET = ['공통', '가입기관무관', '1개월', '무관', '무관', '무관', '무관', '무관', '개인'];
+  const COMMON_RULES = `3. 타이틀·문구에 이모티콘 사용 금지 (상용에서 깨짐)
+4. 지난 발송 문구와 겹치지 않게 매달 다른 문구
+5. 혜택·금액은 지난 문구에 나온 내용만 사용. 과장·단정 표현, 의학적 효능 단정 금지`;
+
+  // ---------- 통신사별 양식 ----------
+  // read: 지난 계획서 한 회차 → {date, title, body, optout} / write: 회차 하나를 시트에 씀 / cell: 문구 셀에 들어갈 글
+  const CARS = {
+    skt: {
+      label: 'SKT', desc: 'PUSH문구 · 1행 1회차',
+      sheet: 'PUSH문구', headRow: 2, start: 3, step: 1, cols: range(2, 6),
+      head: ['발송일자', '연령대', '요청 모수', '발송 요청', '문구'], widths: [13, 14, 14, 16, 70],
+      // 26.10.01 정보통신망법 개정: 상단에 (광고) 필수, 하단 끝에 (알림끄기>앱설정) 필수
+      ad: { title: true, body: false }, adPrefix: '(광고)', emojiOk: true,
+      adRule: '상단(title)은 "(광고)"로 시작한다(괄호 뒤 띄어쓰기 없이 바로 이어 씀). 하단(body)에는 (광고)를 붙이지 않는다.',
+      names: { title: '상단', body: '하단' },
+      svc: '생활건강',
+      optout: '(알림끄기>앱설정)',
+      rules: `1. 상단 문구 맨 앞에 "(광고)" 필수 (26.10.01 정보통신망법 개정). 예: (광고)실업, 사고로 통신비 걱정될 땐?
+2. 하단 문구 끝에 "(알림끄기>앱설정)" 필수. 리치푸시 하단 문구에도 생략 없이 넣음
+3. 하단에는 (광고)를 붙이지 않음. 예: 통신비안심으로 보장받고 가을맞이 가입 선물까지(알림끄기>앱설정)
+4. 푸시 효율을 위해 전월과 같은 문구 재사용 지양
+5. 연령대에 맞는 증상·관심사로 상단을 질문형으로 쓰면 좋음. 의학적 효능·진단 단정 금지`,
+      fields: [{ k: 'reqn', label: '요청 모수' }, { k: 'req', label: '발송 요청' }],
+      rowFields: [{ k: 'age', label: '연령대', col: 3 }],
+      file: (c) => `${c.svc}_${c.yy}.${c.mm}_PUSH 발송 계획_${c.today}.XLSX`,
+      read(ws, r) {
+        const copy = txt(ws, r, 6);
+        if (!copy) return null;
+        const lines = copy.split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
+        const title = (lines.find((l) => /^상단/.test(l)) || lines[0] || '').replace(/^상단\s*[:：]\s*/, '');
+        let body = (lines.find((l) => /^하단/.test(l)) || lines.slice(1).join(' ')).replace(/^하단\s*[:：]\s*/, '');
+        const m = body.match(/\s*((?:\*\s*)?\(?\s*(?:무료\s*)?수신\s*거부.*|\(\s*알림\s*끄기.*\))$/);
+        const optout = m ? m[1].trim() : '';
+        if (m) body = body.slice(0, m.index).trim();
+        return { date: cellDate(ws.getCell(r, 2).value), title, body, optout, age: txt(ws, r, 3) };
+      },
+      prefill: (ws, r) => ({ reqn: txt(ws, r, 4), req: txt(ws, r, 5) }),
+      // 괄호로 시작하는 알림끄기 안내는 본문에 바로 붙임 (26.10 계획서 기준)
+      cell: (row, optout) => `상단: ${row.title.trim()}\n하단: ${row.body.trim()}${optout ? (optout.startsWith('(') ? optout : ` ${optout}`) : ''}`,
+      write(ws, r, row, x) {
+        setDate(ws.getCell(r, 2), row.date);
+        ws.getCell(r, 3).value = row.age || null;
+        ws.getCell(r, 4).value = val(x.f.reqn);
+        ws.getCell(r, 5).value = val(x.f.req);
+        wrapSet(ws.getCell(r, 6), this.cell(row, x.optout));
+      },
+    },
+    kt: {
+      label: 'KT', desc: 'PUSH문구 · 2행 1세트',
+      sheet: 'PUSH문구', headRow: 2, start: 4, step: 2, cols: range(2, 13),
+      head: ['발송일자', '타이틀', '문구', 'OS', '앱 가입기간', '최근접속일', '연령대 구분', '생일', '성별', '통신사구분', '서비스가입 여부', '가입유형'],
+      widths: [13, 30, 62, 10, 13, 11, 11, 8, 8, 11, 13, 10],
+      blankMerge: ['B', 'C', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'],
+      ad: { title: true, body: true },
+      adRule: '타이틀과 문구 모두 "(광고) "로 시작한다.',
+      names: { title: '타이틀', body: '문구' },
+      svc: '헬스케어',
+      optout: '* 수신거부 : 설정 > 알림 설정 > PASS앱 광고성 정보 수신동의 > 거부',
+      rules: `1. 타이틀과 문구 모두 맨 앞에 "(광고)" 표기. (광/고), (광 고), (ad) 같은 변칙 표기 금지
+2. 수신거부 문구는 별과 글자 사이를 띄어 씀: "* 수신거부"
+${COMMON_RULES}`,
+      fields: [{ k: 'url', label: '랜딩 URL (utm_id 날짜는 회차별로 바뀝니다)', full: true }],
+      file: (c) => `KT_${c.svc}_${c.yy}.${c.mm}_PUSH발송계획_${c.today}.XLSX`,
+      read(ws, r) {
+        const title = txt(ws, r, 3), copy = txt(ws, r, 4);
+        if (!title && !copy) return null;
+        const lines = copy.split(/\r?\n/).map((s) => s.trim());
+        return {
+          date: cellDate(ws.getCell(r, 2).value), title,
+          body: lines.filter((l) => l && !/수신거부/.test(l)).join(' '),
+          optout: lines.find((l) => /수신거부/.test(l)) || '',
+        };
+      },
+      prefill: (ws, r) => ({ url: txt(ws, r + 1, 4) }),
+      cell: (row, optout) => (optout ? `${row.body.trim()}\n${optout}` : row.body.trim()),
+      write(ws, r, row, x) {
+        setDate(ws.getCell(r, 2), row.date);
+        ws.getCell(r, 3).value = row.title.trim();
+        wrapSet(ws.getCell(r, 4), this.cell(row, x.optout));
+        range(5, 13).forEach((c, k) => { const v = x.tpl?.[0]?.[c]; ws.getCell(r, c).value = v ?? KT_TARGET[k]; });
+        if (x.f.url) ws.getCell(r + 1, 4).value = withUtm(x.f.url, row.date);
+      },
+    },
+    lg: {
+      label: 'LG U+', desc: 'CP사 발송 마케팅 PUSH · 1행 1회차',
+      sheet: 'CP사 발송 마케팅 PUSH', headRow: 3, start: 5, step: 1, cols: range(2, 11),
+      head: ['날짜', '요일', '시간', '휴일여부', '서비스', 'CP사', '문구', '건수', '타겟 기준', '랜딩 URL'],
+      widths: [13, 7, 9, 9, 14, 12, 60, 10, 24, 40],
+      ad: { title: true, body: false },
+      adRule: '타이틀은 "(광고) "로 시작한다. 문구에는 (광고)를 붙이지 않는다.',
+      // 양식 안내 행(4행): 타이틀 (광고) 포함 17자 이내, 텍스트 23자 이내 권고
+      maxLen: { title: 17, body: 23 },
+      lenRule: 'title은 (광고)를 포함해 17자 이내, body는 23자 이내 (띄어쓰기 포함, 꼭 지킬 것).',
+      names: { title: '타이틀', body: '문구' },
+      svc: '헬스케어',
+      optout: '*수신거부 : 전체>이용약관 및 정책',
+      rules: `1. 문구 셀은 3줄: 첫 줄 "(광고) 타이틀", 둘째 줄 텍스트, 셋째 줄 수신거부
+2. 타이틀은 (광고) 포함 17자 이내, 텍스트는 23자 이내 권고
+3. 수신거부 관련 내용 고지 필수: *수신거부 : 전체>이용약관 및 정책
+${COMMON_RULES}`,
+      fields: [
+        { k: 'cp', label: 'CP사', def: '오션블루' }, { k: 'fileSvc', label: '파일명 서비스명', def: '만보기' },
+        { k: 'time', label: '발송 시간' }, { k: 'count', label: '건수' },
+        { k: 'url', label: '랜딩 URL (비워 두면 빈칸, utm_id 날짜는 회차별로 바뀝니다)', full: true },
+      ],
+      rowFields: [{ k: 'target', label: '타겟 기준' }],
+      file: (c) => `${c.f.cp || '오션블루'}_U^MPASS_${c.f.fileSvc || c.svc}_PUSH_발송계획_${c.yy}년_${c.m}월_${c.yyyy}${c.today.slice(2)}.xlsx`,
+      read(ws, r) {
+        const copy = txt(ws, r, 8);
+        if (!copy) return null;
+        const lines = copy.split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
+        const optout = lines.find((l) => /수신거부/.test(l)) || '';
+        const rest = lines.filter((l) => l !== optout);
+        return { date: cellDate(ws.getCell(r, 2).value), title: rest[0] || '', body: rest.slice(1).join(' '), optout, target: txt(ws, r, 10) };
+      },
+      prefill: (ws, r) => ({ cp: txt(ws, r, 7), time: timeText(ws.getCell(r, 4).value), count: txt(ws, r, 9), url: txt(ws, r, 11) }),
+      cell: (row, optout) => [row.title.trim(), row.body.trim(), optout].filter(Boolean).join('\n'),
+      write(ws, r, row, x) {
+        const [y, m, d] = row.date.split('-').map(Number);
+        const dow = new Date(y, m - 1, d).getDay();
+        const off = dow === 0 || dow === 6;
+        const tplHoliday = cellText(x.tpl?.[0]?.[5]).trim();
+        setDate(ws.getCell(r, 2), row.date);
+        ws.getCell(r, 3).value = `${WD[dow]}요일`;
+        ws.getCell(r, 4).value = x.f.time || null;
+        // 지난 계획서 표기(O/X, Y/N)를 따르고, 없으면 O/X
+        ws.getCell(r, 5).value = /^[YN]$/i.test(tplHoliday) ? (off ? 'Y' : 'N') : (off ? 'O' : 'X');
+        ws.getCell(r, 6).value = x.svc;
+        ws.getCell(r, 7).value = x.f.cp || null;
+        wrapSet(ws.getCell(r, 8), this.cell(row, x.optout));
+        ws.getCell(r, 9).value = val(x.f.count);
+        ws.getCell(r, 10).value = row.target || null;
+        ws.getCell(r, 11).value = x.f.url ? withUtm(x.f.url, row.date) : null;
+      },
+    },
+  };
+  const ORDER = ['skt', 'kt', 'lg'];
+
+  // 통신사마다 발송일·지난 계획서·회차 문구·작성 조건을 따로 둠
+  const S = { car: 'kt', c: {}, sample: null, ctl: null, busy: false };
+  for (const k of ORDER) S.c[k] = { dates: [], past: [], rows: [], set: loadSet(k) };
+  const cfg = () => CARS[S.car];
+  const cs = () => S.c[S.car];
+
+  const now = new Date();
+  const next = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+  $('p-month').value = `${next.getFullYear()}-${pad(next.getMonth() + 1)}`;
+
+  const isoOf = (y, m, d) => `${y}-${pad(m)}-${pad(d)}`;
+  const weekday = (iso) => { const [y, m, d] = iso.split('-').map(Number); return WD[new Date(y, m - 1, d).getDay()]; };
+  const svc = () => cs().set.svc.trim() || '서비스';
+  function month() {
+    const [y, m] = ($('p-month').value || '').split('-').map(Number);
+    return y && m ? { y, m } : { y: next.getFullYear(), m: next.getMonth() + 1 };
+  }
+  function fname() {
+    const { y, m } = month();
+    const today = `${String(now.getFullYear()).slice(2)}${pad(now.getMonth() + 1)}${pad(now.getDate())}`;
+    const c = { svc: svc().replace(/\s+/g, ''), yy: String(y).slice(2), mm: pad(m), m, today, yyyy: String(now.getFullYear()), f: cs().set.fields };
+    return cfg().file(c).replace(/[\\/:*?"<>|]/g, '');
+  }
+  const updateFname = () => { $('p-fname').textContent = fname(); };
+  $('p-service').addEventListener('input', () => { cs().set.svc = $('p-service').value; saveSet(); updateFname(); });
+  $('p-month').addEventListener('input', updateFname);
+
+  function status(id, text, err) { const el = $(id); el.textContent = text; el.className = 'status' + (err ? ' sample' : ''); }
+  function msg(text, err) { $('p-msg').textContent = text; $('p-msg').className = 'msg' + (err ? ' err' : ''); }
+
+  // ---------- 작성 조건 보관 (보는 사람 브라우저에만) ----------
+  function loadSet(k) {
+    const c = CARS[k];
+    const def = { svc: c.svc, optout: c.optout, rules: c.rules, extra: '', fields: Object.fromEntries(c.fields.map((f) => [f.k, f.def || ''])) };
+    try {
+      const s = JSON.parse(localStorage.getItem(`push-set3-${k}`) || 'null');
+      if (s) return { ...def, ...s, fields: { ...def.fields, ...(s.fields || {}) } };
+    } catch {}
+    return def;
+  }
+  function saveSet(k = S.car) { try { localStorage.setItem(`push-set3-${k}`, JSON.stringify(S.c[k].set)); } catch {} }
+  $('p-optout').addEventListener('input', () => {
+    cs().set.optout = $('p-optout').value.trim(); saveSet();
+    renderRows();
+  });
+  $('p-rules').addEventListener('input', () => { cs().set.rules = $('p-rules').value; saveSet(); });
+  $('p-extra').addEventListener('input', () => { cs().set.extra = $('p-extra').value; saveSet(); });
+
+  // ---------- 셀 값 ----------
+  function cellText(v) {
+    if (v == null) return '';
+    if (typeof v === 'string') return v;
+    if (typeof v === 'number') return String(v);
+    if (v instanceof Date) return v.getUTCFullYear() < 1900 ? timeText(v) : v.toISOString().slice(0, 10);
+    if (Array.isArray(v.richText)) return v.richText.map((r) => r.text).join('');
+    if (v.text != null) return cellText(v.text);
+    if (v.result != null) return cellText(v.result);
+    return '';
+  }
+  const txt = (ws, r, c) => cellText(ws.getCell(r, c).value).trim();
+  function timeText(v) {
+    if (v instanceof Date) return `${pad(v.getUTCHours())}:${pad(v.getUTCMinutes())}`;
+    if (typeof v === 'number' && v < 1) { const mins = Math.round(v * 1440); return `${pad(Math.floor(mins / 60))}:${pad(mins % 60)}`; }
+    return cellText(v).trim();
+  }
+  function cellDate(v) {
+    if (v instanceof Date) return v.toISOString().slice(0, 10);
+    if (typeof v === 'number' && v > 30000) return new Date(Math.round((v - 25569) * 864e5)).toISOString().slice(0, 10);
+    const m = cellText(v).match(/(\d{4})\D+(\d{1,2})\D+(\d{1,2})/);
+    return m ? isoOf(m[1], +m[2], +m[3]) : '';
+  }
+  const val = (s) => (s === '' || s == null ? null : /^\d+$/.test(String(s).replace(/,/g, '')) ? Number(String(s).replace(/,/g, '')) : s);
+  // 날짜는 글자로 넣음: 날짜 값은 열이 조금만 좁아도 ####로 바뀌어 메일에 붙여 넣을 때 그대로 복사됨
+  function setDate(cell, iso) { cell.value = iso; }
+  function wrapSet(cell, text) { cell.value = text; cell.alignment = { ...(cell.alignment || {}), wrapText: true, vertical: 'middle' }; }
+  const withUtm = (url, iso) => (/utm_id=\d*/.test(url) ? url.replace(/utm_id=\d*/, `utm_id=${iso.replaceAll('-', '')}`) : url);
+  const norm = (s) => String(s).replace(/\(광고\)/g, '').replace(/[\s.,!?·~'"]/g, '');
+  const clone = (o) => JSON.parse(JSON.stringify(o || {}));
+
+  // ---------- 저장 ----------
+  async function saveFile(filename, blob) {
+    if (typeof window.claude?.use === 'function') {
+      const dl = await window.claude.use('downloads');
+      if (!dl) throw { code: 'unavailable' };
+      return dl.save({ filename, data: blob });
+    }
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = filename;
+    document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    return { status: 'saved' };
+  }
+
+  // ---------- 통신사 탭 ----------
+  function setCar(car) {
+    if (!CARS[car]) car = 'kt';
+    S.ctl?.abort();
+    S.car = car;
+    const c = cfg(), st = cs().set;
+    const host = $('p-car-tabs');
+    host.replaceChildren();
+    for (const k of ORDER) {
+      const b = document.createElement('button');
+      b.className = 'tab'; b.type = 'button'; b.setAttribute('role', 'tab');
+      b.setAttribute('aria-selected', String(k === car));
+      b.textContent = CARS[k].label;
+      const sm = document.createElement('small'); sm.textContent = CARS[k].desc; b.append(sm);
+      b.addEventListener('click', () => setCar(k));
+      host.append(b);
+    }
+    $('p-past-title').textContent = `지난 ${c.label} 발송계획`;
+    $('p-past-drop-title').textContent = `지난 ${c.label} 발송계획 엑셀을 끌어다 놓기`;
+    $('p-form-title').textContent = `양식 항목 (${c.label})`;
+    $('p-rows-title').textContent = `${c.label} 회차별 문구`;
+    $('p-service').value = st.svc;
+    $('p-optout').value = st.optout;
+    $('p-rules').value = st.rules;
+    $('p-extra').value = st.extra;
+    renderFields();
+    renderDates();
+    renderPast();
+    renderRows();
+    renderLast();
+    updateFname();
+    msg('');
+    try { localStorage.setItem('push-car', car); } catch {}
+  }
+
+  function renderFields() {
+    const host = $('p-form-fields');
+    host.replaceChildren();
+    for (const f of cfg().fields) {
+      const w = document.createElement('div'); w.className = 'field' + (f.full ? ' full' : '');
+      const l = document.createElement('label'); l.htmlFor = `p-f-${f.k}`; l.textContent = f.label;
+      const i = document.createElement('input'); i.type = 'text'; i.id = `p-f-${f.k}`; i.value = cs().set.fields[f.k] || '';
+      i.addEventListener('input', () => { cs().set.fields[f.k] = i.value.trim(); saveSet(); updateFname(); });
+      w.append(l, i);
+      host.append(w);
+    }
+    status('p-form-note', cs().past.length ? '지난 계획서 값을 채웠습니다. 이번 달에 바뀐 값만 고쳐 주세요.' : '지난 계획서를 올리면 그 값으로 채웁니다. 모든 회차에 같은 값이 들어갑니다.');
+  }
+
+  // ---------- 발송일 ----------
+  function addDates(list) {
+    let n = 0;
+    for (const d of list) if (/^\d{4}-\d{2}-\d{2}$/.test(d) && !cs().dates.includes(d)) { cs().dates.push(d); n++; }
+    cs().dates.sort();
+    renderDates();
+    return n;
+  }
+  function renderDates() {
+    const host = $('p-dates');
+    host.replaceChildren();
+    for (const d of cs().dates) {
+      const c = document.createElement('span');
+      c.className = 'chip';
+      c.append(`${+d.slice(5, 7)}/${+d.slice(8)} (${weekday(d)})`);
+      const x = document.createElement('button');
+      x.type = 'button'; x.textContent = '×'; x.setAttribute('aria-label', `${d} 빼기`);
+      x.addEventListener('click', () => { cs().dates = cs().dates.filter((v) => v !== d); renderDates(); });
+      c.append(x);
+      host.append(c);
+    }
+    const n = cs().dates.length;
+    if (n) status('p-sched-status', `${cfg().label} 발송일 ${n}개. 잘못 들어간 날짜는 ×로 빼 주세요.`);
+    else status('p-sched-status', $('p-sched-wrap').hidden ? `${cfg().label} 발송일을 하나씩 추가해 주세요.` : `${cfg().label} 스케줄 이미지를 올리거나 발송일을 하나씩 추가해 주세요.`);
+    updateGen();
+  }
+  $('p-date-add').addEventListener('click', () => { const v = $('p-date').value; if (v) { addDates([v]); $('p-date').value = ''; } });
+  $('p-date').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('p-date-add').click(); });
+
+  async function readSchedule(file) {
+    if (!S.sample) return;
+    const car = S.car;
+    const { y, m } = month();
+    status('p-sched-status', '이미지에서 날짜를 찾는 중… (30초쯤 걸릴 수 있습니다)');
+    try {
+      const res = await S.sample.json(
+        `이 이미지는 ${y}년 ${m}월 PUSH 발송 스케줄 표다. 날짜 칸마다 그날 발송할 서비스명이 줄마다 적혀 있다. `
+        + `서비스명에 "${svc()}"가 들어간 날짜를 모두 찾아라. 요일 표기는 무시하고 칸에 적힌 월·일만 따른다. `
+        + `JSON 배열만 답하라. 예: ["${isoOf(y, m, 1)}", "${isoOf(y, m, 15)}"]. 없으면 [].`,
+        { images: [file], cache: false },
+      );
+      if (car !== S.car) return;
+      const found = (Array.isArray(res) ? res : []).map(String);
+      const n = addDates(found);
+      status('p-sched-status', found.length ? `이미지에서 ${found.length}개 날짜를 찾아 ${n}개를 새로 넣었습니다. 스케줄과 맞는지 확인해 주세요.` : `이미지에서 "${svc()}" 날짜를 찾지 못했습니다. 직접 추가해 주세요.`, !found.length);
+    } catch (e) {
+      if (car !== S.car) return;
+      status('p-sched-status', e?.code === 'not_granted' ? 'Claude 사용을 허용해야 이미지에서 날짜를 찾을 수 있습니다. 날짜를 직접 추가해 주세요.' : '이미지를 읽지 못했습니다. 날짜를 직접 추가해 주세요.', true);
+    }
+  }
+  bindDrop('p-sched-drop', 'p-sched-file', (files) => files[0] && readSchedule(files[0]));
+
+  // ---------- 지난 발송계획 ----------
+  async function readPlan(file, c) {
+    const buf = await file.arrayBuffer();
+    const wb = new ExcelJS.Workbook();
+    await wb.xlsx.load(buf.slice(0));
+    // 시트 이름 앞에 '7월_'처럼 월이 붙거나 한 파일에 여러 달 시트가 있으면, 가장 최근 날짜의 시트를 씀
+    const sheets = wb.worksheets.filter((w) => w.name === c.sheet || w.name.endsWith(c.sheet));
+    if (!sheets.length) throw new Error(`'${c.sheet}' 시트가 없습니다`);
+    let best = null;
+    for (const ws of sheets) {
+      const items = [];
+      let first = 0;
+      for (let r = c.start; r <= ws.rowCount; r += c.step) {
+        const it = c.read(ws, r);
+        if (!it || (!it.title && !it.body)) continue;
+        if (!first) first = r;
+        items.push(it);
+      }
+      if (!items.length) continue;
+      const latest = items.map((i) => i.date).sort().pop() || '';
+      if (!best || latest > best.latest) best = { name: file.name, buf, items, latest, sheet: ws.name, prefill: c.prefill(ws, first) };
+    }
+    if (!best) throw new Error(`${c.start}행부터 문구가 없습니다`);
+    return best;
+  }
+  async function ingestPast(files) {
+    const car = S.car, c = CARS[car], st = S.c[car];
+    const list = [...files].filter((f) => /\.xlsx$/i.test(f.name));
+    if (!list.length) { status('p-past-status', 'xlsx 파일만 읽을 수 있습니다.', true); return; }
+    status('p-past-status', '엑셀을 읽는 중…');
+    const failed = [];
+    for (const f of list) {
+      if (st.past.some((p) => p.name === f.name)) continue;
+      try { st.past.push(await readPlan(f, c)); }
+      catch (e) { failed.push(`${f.name} (${e.message || '읽지 못함'})`); }
+    }
+    st.past.sort((a, b) => a.latest.localeCompare(b.latest));
+    // 가장 최근 계획서 값으로 양식 항목과 수신거부 문구를 채움
+    const tpl = st.past[st.past.length - 1];
+    if (tpl) {
+      for (const [k, v] of Object.entries(tpl.prefill)) if (v) st.set.fields[k] = v;
+      const opt = [...tpl.items].reverse().find((i) => i.optout)?.optout;
+      if (opt) st.set.optout = opt;
+      saveSet(car);
+    }
+    if (car !== S.car) return;
+    setCar(car);
+    if (failed.length) status('p-past-status', `${$('p-past-status').textContent} ${c.label} 양식으로 읽지 못한 파일: ${failed.join(', ')}`, true);
+  }
+  const template = () => cs().past[cs().past.length - 1] || null;
+  function renderPast() {
+    const t = $('p-past-list');
+    t.replaceChildren();
+    const items = cs().past.flatMap((p) => p.items).sort((a, b) => b.date.localeCompare(a.date));
+    t.hidden = !items.length;
+    if (items.length) {
+      const head = t.insertRow();
+      for (const h of ['발송일', cfg().names.title, cfg().names.body]) { const th = document.createElement('th'); th.textContent = h; head.append(th); }
+      for (const it of items) {
+        const r = t.insertRow();
+        const d = r.insertCell(); d.className = 'num'; d.textContent = it.date;
+        const a = r.insertCell(); a.className = 'wrap'; a.textContent = it.title;
+        const b = r.insertCell(); b.className = 'wrap'; b.textContent = it.body;
+      }
+    }
+    $('p-past-clear').disabled = !cs().past.length;
+    if (cs().past.length) status('p-past-status', `파일 ${cs().past.length}개 · 문구 ${items.length}건을 읽었습니다. 엑셀은 ${template().name}의 양식을 따릅니다.`);
+    else status('p-past-status', `올리지 않으면 같은 문구 확인 없이 기본 ${cfg().label} 양식으로 저장합니다.`);
+  }
+  bindDrop('p-past-drop', 'p-past-file', ingestPast);
+  $('p-past-clear').addEventListener('click', () => { cs().past = []; renderPast(); renderFields(); renderRows(); });
+
+  // ---------- 문구 만들기 ----------
+  function buildPrompt() {
+    const c = cfg(), st = cs().set;
+    const past = cs().past.flatMap((p) => p.items).map((i) => `- ${i.date} | ${c.names.title}: ${i.title} | ${c.names.body}: ${i.body}`).join('\n');
+    const dates = cs().dates.map((d, i) => {
+      const extra = (c.rowFields || []).map((f) => { const v = rowSeed(d, i)[f.k]; return v ? ` · ${f.label}: ${v}` : ''; }).join('');
+      return `- ${d} (${weekday(d)})${extra}`;
+    }).join('\n');
+    return `너는 통신사 부가서비스 "${svc()}"의 ${c.label} 마케팅 PUSH 문구 작성자다. 아래 발송일마다 새 PUSH 문구(${c.names.title} 1개, ${c.names.body} 1개)를 한국어로 써라. JSON의 title은 ${c.names.title}, body는 ${c.names.body}다.
+
+[발송일]
+${dates}
+
+[지난 ${c.label} 발송 문구: 톤과 길이는 참고하되, 같은 문구나 거의 같은 표현은 다시 쓰지 말 것]
+${past || '(없음)'}
+
+[발송 규칙]
+${st.rules.trim()}
+
+[추가 요청]
+${st.extra.trim() || '(없음)'}
+
+[작성 기준]
+- ${c.adRule}
+- 길이: ${c.lenRule || '지난 문구와 비슷하게, title은 (광고)를 빼고 20자 안팎, body는 (광고)를 빼고 30자 안팎.'}
+- 이모티콘과 특수 기호를 쓰지 않는다. 수신거부 문구는 쓰지 않는다(따로 붙인다).
+- 혜택·금액·조건은 지난 문구에 나온 사실만 쓴다. 지난 문구가 없으면 숫자를 쓰지 않는다.
+- 의학적 효능, 진단, 치료를 단정하거나 암시하지 않는다.
+- 발송일의 계절감과 시기(월초, 월말 등)를 살리고, 회차끼리도 소재가 겹치지 않게 한다.
+
+JSON 배열만 답하라. 발송일 순서대로 하나씩:
+[{"date":"YYYY-MM-DD","title":"...","body":"...","reason":"이 문구를 고른 이유 한 줄"}]`;
+  }
+  function fixAd(s, need, prefix = '(광고) ') {
+    s = String(s || '').trim();
+    if (!s) return s;
+    if (need) return s.startsWith('(광고)') ? s : `${prefix}${s}`;
+    return s.replace(/^\(광고\)\s*/, '');
+  }
+  // 회차별 항목(SKT 연령대 등): 이미 쓴 값 → 지난 계획서 같은 순번 값 순으로 채움
+  function rowSeed(date, i) {
+    const old = cs().rows.find((r) => r.date === date);
+    const tplItem = template()?.items[i];
+    return Object.fromEntries((cfg().rowFields || []).map((f) => [f.k, old?.[f.k] ?? tplItem?.[f.k] ?? '']));
+  }
+  const GEN_ERR = {
+    not_granted: '이 페이지의 Claude 사용을 허용해야 문구를 만들 수 있습니다.',
+    sampling_disabled: '이 계정에서는 Claude 문구 작성을 쓸 수 없습니다.',
+    rate_limited: '요청이 많습니다. 잠시 후 다시 눌러 주세요.',
+    invalid_json: '답을 읽지 못했습니다. 다시 눌러 주세요.',
+    refused: 'Claude가 이 요청을 거절했습니다. 추가 요청이나 규칙을 바꿔 다시 눌러 주세요.',
+    session_expired: '로그인이 만료됐습니다. 다시 로그인해 주세요.',
+  };
+  function updateGen() {
+    $('p-gen').disabled = S.busy || !S.sample || !cs().dates.length;
+    $('p-save').disabled = S.busy || !cs().rows.length;
+  }
+  $('p-gen').addEventListener('click', async () => {
+    const car = S.car, c = cfg(), st = cs();
+    S.ctl = new AbortController();
+    S.busy = true; updateGen();
+    $('p-stop').hidden = false;
+    msg(`${c.label} 문구를 쓰는 중… (${st.dates.length}회차, 1분 안팎 걸릴 수 있습니다)`);
+    try {
+      const res = await S.sample.json(buildPrompt(), { signal: S.ctl.signal, cache: false });
+      if (!Array.isArray(res)) throw { code: 'invalid_json' };
+      const items = res.filter((o) => o && typeof o === 'object');
+      const byDate = new Map(items.map((o) => [String(o.date), o]));
+      st.rows = st.dates.map((d, i) => {
+        const o = byDate.get(d) || items[i] || {};
+        return { ...rowSeed(d, i), date: d, title: fixAd(o.title, c.ad.title, c.adPrefix), body: fixAd(o.body, c.ad.body, c.adPrefix), reason: String(o.reason || '') };
+      });
+      if (car === S.car) {
+        renderRows();
+        msg(`${st.rows.length}회차 문구를 만들었습니다. 고칠 곳은 바로 고친 뒤 엑셀로 저장하세요.`);
+      }
+    } catch (e) {
+      if (car === S.car) {
+        if (e?.code === 'cancelled') msg('중지했습니다.');
+        else msg(GEN_ERR[e?.code] || '문구를 만들지 못했습니다. 다시 눌러 주세요.', true);
+      }
+    } finally {
+      S.busy = false; $('p-stop').hidden = true; updateGen();
+    }
+  });
+  $('p-stop').addEventListener('click', () => S.ctl?.abort());
+
+  // ---------- 규칙 확인 ----------
+  const SUBJ = { 타이틀: '타이틀이', 문구: '문구가', 상단: '상단이', 하단: '하단이' };
+  function checks(row, i) {
+    const c = cfg(), out = [];
+    const pastTexts = new Set(cs().past.flatMap((p) => p.items).flatMap((it) => [norm(it.title), norm(it.body)]).filter(Boolean));
+    for (const k of ['title', 'body']) {
+      const label = c.names[k], subj = SUBJ[label];
+      const v = row[k].trim();
+      if (!v) { out.push(`${subj} 비어 있습니다`); continue; }
+      const has = v.startsWith('(광고)');
+      if (c.ad[k] && !has) out.push(`${label} 맨 앞에 (광고)가 없습니다`);
+      if (!c.ad[k] && /\(광고\)/.test(v)) out.push(`${c.label}는 ${label}에 (광고)를 붙이지 않습니다`);
+      if (/\(\s*광\s*[\/\s]\s*고\s*\)|\(\s*ad\s*\)/i.test(v)) out.push(`${label}에 변칙 광고 표기가 있습니다`);
+      if (!c.emojiOk && EMOJI.test(v)) out.push(`${label}에 이모티콘이 있습니다`);
+      if (pastTexts.has(norm(v))) out.push(`${subj} 지난 발송 문구와 같습니다`);
+      if (cs().rows.some((o, j) => j !== i && norm(o[k]) === norm(v))) out.push(`다른 회차와 ${subj} 같습니다`);
+    }
+    for (const k of ['title', 'body']) {
+      const max = c.maxLen?.[k], n = [...row[k].trim()].length;
+      if (max && n > max) out.push(`${c.names[k]} ${n}자로 ${max}자 권고를 넘습니다`);
+    }
+    for (const f of c.rowFields || []) if (!String(row[f.k] || '').trim()) out.push(`${josa(f.label)} 비어 있습니다`);
+    if (!cs().set.optout) out.push('수신거부 문구가 비어 있습니다');
+    else if (!/수신\s*거부|알림\s*끄기/.test(cs().set.optout)) out.push('수신거부 문구를 확인해 주세요');
+    return out;
+  }
+  const adLen = (s) => [...s.replace(/^\(광고\)\s*/, '')].length;
+  // 받침 유무로 이/가 고르기
+  const josa = (w) => { const ch = w.charCodeAt(w.length - 1) - 0xac00; return w + (ch >= 0 && ch <= 11171 && ch % 28 ? '이' : '가'); };
+  function renderRows() {
+    const host = $('p-rows'), c = cfg(), rows = cs().rows;
+    host.replaceChildren();
+    if (!rows.length) {
+      const p = document.createElement('p');
+      p.className = 'empty';
+      p.textContent = `${c.label} 발송일을 넣고 문구 만들기를 누르면 여기에 회차별 문구가 나옵니다.`;
+      host.append(p);
+      $('p-count').textContent = '';
+      updateGen();
+      return;
+    }
+    const cards = [];
+    const repaint = () => {
+      let bad = 0;
+      for (const k of cards) {
+        const list = checks(k.row, k.i);
+        k.chk.textContent = list.length ? list.join(' · ') : '규칙 확인 완료';
+        k.chk.className = 'p-check' + (list.length ? ' bad' : '');
+        k.cell.textContent = c.cell(k.row, cs().set.optout);
+        if (list.length) bad++;
+      }
+      $('p-count').textContent = `${rows.length}회차${bad ? ` · 확인 필요 ${bad}` : ''}`;
+    };
+    rows.forEach((row, i) => {
+      const card = document.createElement('article');
+      card.className = 'p-card';
+      const head = document.createElement('div');
+      head.className = 'p-card-head';
+      const st = document.createElement('strong'); st.textContent = `${i + 1}회차 · ${row.date} (${weekday(row.date)})`;
+      head.append(st);
+      if (row.reason) { const rs = document.createElement('span'); rs.textContent = row.reason; head.append(rs); }
+      card.append(head);
+      for (const f of c.rowFields || []) {
+        const id = `p-${f.k}-${i}`;
+        const lab = document.createElement('div'); lab.className = 'p-label';
+        const l = document.createElement('label'); l.htmlFor = id; l.textContent = f.label;
+        lab.append(l);
+        const inp = document.createElement('input'); inp.type = 'text'; inp.id = id; inp.value = row[f.k] || '';
+        inp.addEventListener('input', () => { row[f.k] = inp.value; repaint(); });
+        card.append(lab, inp);
+      }
+      for (const [k, multi] of [['title', false], ['body', true]]) {
+        const id = `p-${k}-${i}`;
+        const lab = document.createElement('div'); lab.className = 'p-label';
+        const l = document.createElement('label'); l.htmlFor = id; l.textContent = c.names[k];
+        const cnt = document.createElement('span');
+        lab.append(l, cnt);
+        const inp = document.createElement(multi ? 'textarea' : 'input');
+        if (!multi) inp.type = 'text';
+        inp.id = id; inp.value = row[k];
+        const max = c.maxLen?.[k];
+        const count = () => { cnt.textContent = max ? `${[...inp.value.trim()].length}/${max}자` : `(광고) 빼고 ${adLen(inp.value)}자`; };
+        count();
+        inp.addEventListener('input', () => { row[k] = inp.value; count(); repaint(); });
+        card.append(lab, inp);
+      }
+      const cl = document.createElement('div'); cl.className = 'p-label';
+      const cll = document.createElement('label'); cll.textContent = '엑셀 문구 셀';
+      cl.append(cll);
+      const cell = document.createElement('pre'); cell.className = 'p-cell';
+      const chk = document.createElement('p');
+      card.append(cl, cell, chk);
+      cards.push({ chk, cell, row, i });
+      host.append(card);
+    });
+    repaint();
+    updateGen();
+  }
+
+  // ---------- 엑셀 ----------
+  function blankSheet(wb, c) {
+    const ws = wb.addWorksheet(c.sheet);
+    const thin = { style: 'thin', color: { argb: 'FFBFC5CC' } };
+    const border = { top: thin, left: thin, bottom: thin, right: thin };
+    ws.getColumn(1).width = 3;
+    c.cols.forEach((col, k) => { ws.getColumn(col).width = c.widths[k]; });
+    const textCol = c.head.indexOf('문구');
+    c.cols.forEach((col, k) => {
+      const h = ws.getCell(c.headRow, col);
+      h.value = c.head[k];
+      h.style = { font: { bold: true }, fill: { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFEEF1F4' } }, border, alignment: { horizontal: 'center', vertical: 'middle' } };
+      for (let off = 0; off < c.step; off++) ws.getCell(c.start + off, col).style = { border, alignment: { horizontal: k === textCol ? 'left' : 'center', vertical: 'middle', wrapText: true } };
+    });
+    ws.getCell(c.start, c.cols[0]).numFmt = 'yyyy-mm-dd';
+    ws.getRow(c.start).height = c.step === 1 ? 54 : 36;
+    return ws;
+  }
+  async function buildXlsx() {
+    const c = cfg(), st = cs();
+    const wb = new ExcelJS.Workbook();
+    const tpl = template();
+    let ws;
+    if (tpl) {
+      await wb.xlsx.load(tpl.buf.slice(0));
+      ws = wb.getWorksheet(tpl.sheet);
+      // 양식 시트 하나만 남기고, '7월_' 같은 월 접두어는 발송 월로 바꿈
+      for (const w of [...wb.worksheets]) if (w.id !== ws.id) wb.removeWorksheet(w.id);
+      if (/^\d{1,2}월_/.test(ws.name)) ws.name = ws.name.replace(/^\d{1,2}월_/, `${month().m}월_`);
+    }
+    else ws = blankSheet(wb, c);
+    // 데이터 행의 병합을 풀고, 첫 회차 묶음의 세로 병합 모양을 회차마다 다시 적용
+    const pairCols = new Set(tpl ? [] : (c.blankMerge || []));
+    for (const rg of ws.model.merges || []) {
+      const m = rg.match(/^([A-Z]+)(\d+):([A-Z]+)(\d+)$/);
+      if (!m || +m[2] < c.start) continue;
+      if (c.step > 1 && +m[2] === c.start && +m[4] === c.start + c.step - 1 && m[1] === m[3]) pairCols.add(m[1]);
+      ws.unMergeCells(rg);
+    }
+    const offs = range(0, c.step - 1);
+    const styles = offs.map((o) => c.cols.map((col) => clone(ws.getCell(c.start + o, col).style)));
+    const tplVals = tpl ? offs.map((o) => Object.fromEntries(c.cols.map((col) => [col, ws.getCell(c.start + o, col).value]))) : null;
+    const heights = offs.map((o) => ws.getRow(c.start + o).height);
+    const last = Math.max(ws.rowCount, c.start + c.step - 1);
+    // 값만 지우고 서식은 남겨 원래 양식(빈 줄 테두리 등)을 유지
+    for (let r = c.start; r <= last; r++) for (const col of c.cols) ws.getCell(r, col).value = null;
+    const x = { f: st.set.fields, optout: st.set.optout, svc: svc(), tpl: tplVals };
+    st.rows.forEach((row, i) => {
+      const r = c.start + i * c.step;
+      offs.forEach((o) => {
+        c.cols.forEach((col, k) => { ws.getCell(r + o, col).style = clone(styles[o][k]); });
+        if (heights[o]) ws.getRow(r + o).height = heights[o];
+      });
+      c.write(ws, r, row, x);
+      for (const col of pairCols) ws.mergeCells(`${col}${r}:${col}${r + c.step - 1}`);
+    });
+    return keepDefaultFont(await wb.xlsx.writeBuffer(), tpl);
+  }
+  // ExcelJS는 기본 글꼴(표준 스타일)을 Calibri로 바꿔 쓰는데, 열 너비 단위가 기본 글꼴 기준이라
+  // 보는 프로그램에 따라 열이 좁아짐. 양식 파일의 기본 글꼴(없으면 맑은 고딕 11)로 되돌림
+  const DEFAULT_FONT = '<font><sz val="11"/><color theme="1"/><name val="맑은 고딕"/><family val="3"/><charset val="129"/><scheme val="minor"/></font>';
+  const FIRST_FONT = /(<fonts[^>]*>\s*)<font(?:\s[^>]*)?>[\s\S]*?<\/font>/;
+  async function keepDefaultFont(buf, tpl) {
+    let font = DEFAULT_FONT;
+    if (tpl) {
+      const src = await (await JSZip.loadAsync(tpl.buf.slice(0))).file('xl/styles.xml')?.async('string');
+      const m = src?.match(FIRST_FONT);
+      if (m) font = m[0].slice(m[1].length);
+    }
+    const zip = await JSZip.loadAsync(buf);
+    const styles = await zip.file('xl/styles.xml').async('string');
+    zip.file('xl/styles.xml', styles.replace(FIRST_FONT, (_, head) => head + font));
+    return zip.generateAsync({ type: 'blob', mimeType: XLSX_MIME, compression: 'DEFLATE' });
+  }
+  const SAVE_ERR = {
+    declined: '저장을 취소했습니다.',
+    rate_limited: '저장 창이 이미 열려 있습니다. 잠시 후 다시 눌러 주세요.',
+    unavailable: '이 화면에서는 파일 저장을 쓸 수 없습니다.',
+  };
+  $('p-save').addEventListener('click', async () => {
+    $('p-save').disabled = true;
+    const bad = cs().rows.filter((row, i) => checks(row, i).length).length;
+    msg('엑셀을 만드는 중…');
+    try {
+      const blob = await buildXlsx(), name = fname();
+      await saveFile(name, blob);
+      const shared = await keepLast(name, blob);
+      const note = shared ? '' : ' 다시 받기용 사본은 이 화면에만 남았습니다.';
+      msg((bad ? `엑셀을 저장했습니다. 규칙 확인이 남은 회차가 ${bad}개 있으니 다시 봐 주세요.` : '엑셀을 저장했습니다.') + note, !!bad || !shared);
+    } catch (e) {
+      msg(e?.code ? (SAVE_ERR[e.code] || SAVE_ERR.unavailable) : `엑셀을 만들지 못했습니다: ${e?.message || e}`, true);
+    } finally {
+      updateGen();
+    }
+  });
+
+  // ---------- 최근 저장한 엑셀 (db에 통신사별 1개, 팀이 같이 봄) ----------
+  // push-last/<통신사> 문서 하나에 파일(base64)과 회차 문구를 함께 둔다. db가 없으면 이 화면에서만 기억
+  const LAST = {};
+  let DBX = null;
+  const loadLast = (k = S.car) => LAST[k] || null;
+  const blobToB64 = (blob) => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(String(r.result).split(',')[1]); r.onerror = rej; r.readAsDataURL(blob); });
+  async function keepLast(name, blob) {
+    const car = S.car;
+    const rec = { name, at: Date.now(), b64: await blobToB64(blob), dates: [...cs().dates], rows: cs().rows.map((r) => ({ ...r })) };
+    LAST[car] = rec;
+    renderLast();
+    if (!DBX) return false;
+    try { await DBX.doc(`push-last/${car}`).set(rec); return true; } catch { return false; }
+  }
+  (async () => {
+    DBX = typeof window.claude?.use === 'function' ? await window.claude.use('db') : null;
+    if (!DBX) return;
+    for (const k of ORDER) {
+      DBX.doc(`push-last/${k}`).onSnapshot((snap) => {
+        if (!snap.exists) return;
+        LAST[k] = snap.data();
+        if (k === S.car) renderLast();
+      }, () => {});
+    }
+  })();
+  function renderLast() {
+    const r = loadLast();
+    $('p-last').hidden = !r?.b64;
+    if (!r?.b64) return;
+    const d = new Date(r.at);
+    const when = `${d.getMonth() + 1}/${d.getDate()} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    $('p-last-info').textContent = `${r.name}\n${when} 저장 · ${r.rows?.length || 0}회차`;
+    loadArmed = false;
+    $('p-last-load').textContent = '문구 불러오기';
+  }
+  $('p-last-dl').addEventListener('click', async () => {
+    const r = loadLast(); if (!r?.b64) return;
+    try {
+      const bin = atob(r.b64), bytes = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      await saveFile(r.name, new Blob([bytes], { type: XLSX_MIME }));
+      msg('최근 저장한 엑셀을 다시 받았습니다.');
+    } catch (e) {
+      msg(SAVE_ERR[e?.code] || SAVE_ERR.unavailable, true);
+    }
+  });
+  // 지금 화면에 문구가 있으면 한 번 더 눌러야 바꿈
+  let loadArmed = false;
+  $('p-last-load').addEventListener('click', () => {
+    const r = loadLast(); if (!r?.rows?.length) return;
+    if (cs().rows.length && !loadArmed) {
+      loadArmed = true;
+      $('p-last-load').textContent = '한 번 더 눌러 불러오기';
+      msg('지금 화면의 문구가 최근 저장한 문구로 바뀝니다. 한 번 더 누르면 불러옵니다.');
+      return;
+    }
+    cs().dates = [...(r.dates || r.rows.map((x) => x.date))];
+    cs().rows = r.rows.map((x) => ({ ...x }));
+    renderDates(); renderRows(); renderLast();
+    msg(`최근 저장한 문구 ${r.rows.length}회차를 불러왔습니다. 고친 뒤 다시 저장할 수 있습니다.`);
+  });
+
+  // ---------- 공용: 끌어다 놓기 ----------
+  function bindDrop(dropId, fileId, onFiles) {
+    const drop = $(dropId), input = $(fileId);
+    drop.addEventListener('click', () => input.click());
+    drop.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } });
+    input.addEventListener('change', () => { onFiles([...input.files]); input.value = ''; });
+    drop.addEventListener('dragover', (e) => { e.preventDefault(); drop.classList.add('over'); });
+    drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+    drop.addEventListener('drop', (e) => { e.preventDefault(); drop.classList.remove('over'); onFiles([...e.dataTransfer.files]); });
+  }
+
+  // ---------- 시작 ----------
+  let startCar = 'kt';
+  try { startCar = localStorage.getItem('push-car') || 'kt'; } catch {}
+  setCar(startCar);
+  (async () => {
+    S.sample = typeof window.claude?.use === 'function' ? await window.claude.use('sample') : null;
+    if (!S.sample) { msg('이 화면에서는 Claude 문구 작성을 쓸 수 없습니다. claude.ai에서 열어 주세요.', true); updateGen(); return; }
+    const lim = await S.sample.limits().catch(() => null);
+    $('p-sched-wrap').hidden = !lim?.images;
+    renderDates();
+  })();
+  window.__push = { S, CARS, buildXlsx, setCar };
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/docx-preview@0.3.2/dist/docx-preview.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+// ---------- 대외민원 사실확인서 작성 ----------
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const W = 'http://schemas.openxmlformats.org/wordprocessingml/2006/main';
+  const RNS = 'http://schemas.openxmlformats.org/officeDocument/2006/relationships';
+  const XML_NS = 'http://www.w3.org/XML/1998/namespace';
+
+  // 양식 DOCX는 base64 텍스트로 함께 게시되어 있다 (인증 이력 캡처는 안내 이미지로 바꿔 둔 사본)
+  const CARS = {
+    skt: { key: 'SKT', label: 'SKT', telco: 'SKT', desc: '빌레터생활건강', short: '생활건강', file: 'complaint/SKT.docx.b64.txt' },
+    kt: { key: 'KT', label: 'KT', telco: 'KT', desc: 'PASS헬스케어', short: '헬스케어', file: 'complaint/KT.docx.b64.txt' },
+    lg: { key: 'LGU', label: 'LG U+', telco: 'LG U+', desc: 'PASS헬스케어', short: '헬스케어', file: 'complaint/LGU.docx.b64.txt' },
+  };
+  const ORDER = ['skt', 'kt', 'lg'];
+  const FIELDS = ['name', 'writeDate', 'age', 'gender', 'phone', 'channel', 'status', 'history', 'joinAt', 'cancelAt',
+    'joinRoute', 'cancelRoute', 'refundYn', 'refundAmt', 'facts', 'claims', 'authAt', 'refundLog', 'csLog', 'smsAt', 'smsCode'];
+  // 실제 고객이 아닌 예시 값
+  const EXAMPLE = {
+    name: '홍길동', age: '알 수 없음', gender: '알 수 없음', phone: '010-1234-5678', channel: '방송미디어통신위원회 민원 이관',
+    status: '비회원', history: '유료가입 이력 있음', joinAt: '2026-06-03 09:41:27', cancelAt: '2026-09-02 15:12:40',
+    joinRoute: '인터넷 광고(구글)', cancelRoute: '통신사 고객센터', refundYn: '환불 완료 (2026-09-03)', refundAmt: '6,600원',
+    facts: '민원인은 2026-06-03 인터넷 광고(구글)를 통해 휴대폰 본인 인증 후 유료 가입\n2026-09-02 통신사 고객센터를 통해 해지\n2026-09-03 이용요금 전액 환불 처리 완료',
+    claims: '70대 모친의 통신요금 확인 중 인지하지 못한 유료 부가서비스 가입 내역 확인\n모친은 해당 부가서비스를 직접 가입하거나 이용한 사실이 없다고 주장\n향후 유료 부가서비스 가입 차단 및 피해금액 환불 요청',
+    authAt: '2026-06-03 09:41:19',
+    refundLog: '2026-09-03 11:05:12\n환불 발송 문자 내용 : 부가서비스 환불금 처리가 완료되었습니다. 환불 금액 : 6,600원',
+    csLog: '2026/09/02 16:20 통신사 이메일 CS 인입\n2026/09/03 10:30 환불 접수\n2026/09/03 10:45 통신사 이메일 CS 회신 완료',
+    smsAt: '2026-06-03 09:40:58', smsCode: '2719',
+  };
+  const S = { car: 'skt', auth: null, authUrl: null, tpl: {}, busy: false };
+  const pad = (n) => String(n).padStart(2, '0');
+  const today = () => { const d = new Date(); return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`; };
+  const field = (k) => $(`c-${k}`);
+  function values() { const v = {}; for (const k of FIELDS) v[k] = (field(k).value || '').trim(); return v; }
+
+  function fileName(ext) {
+    const v = values(), c = CARS[S.car];
+    const d = (v.writeDate || today()).replace(/-/g, '').slice(2);
+    return `${c.key}_${c.short}_민원사실확인서_${v.name ? `${v.name}고객` : '민원인'}_${d}.${ext}`.replace(/[\\/:*?"<>|]/g, '');
+  }
+  const required = () => [...document.querySelectorAll('#view-complaint [data-req]')];
+  function renderState() {
+    const miss = required().filter((el) => !el.value.trim());
+    required().forEach((el) => el.classList.toggle('c-missing', !el.value.trim()));
+    const st = $('c-state'); st.replaceChildren();
+    const p = document.createElement('span');
+    p.className = 'c-pill' + (miss.length ? ' warn' : '');
+    p.textContent = miss.length ? `필수 ${miss.length}개 비어 있음` : '필수 항목 모두 입력됨';
+    st.append(p);
+    if (!S.auth) { const a = document.createElement('span'); a.className = 'c-pill warn'; a.textContent = '인증 캡처 미첨부'; st.append(a); }
+    const ul = $('c-miss'); ul.replaceChildren();
+    for (const el of miss) {
+      const li = document.createElement('li'), b = document.createElement('button');
+      b.type = 'button'; b.textContent = el.dataset.req; b.addEventListener('click', () => el.focus());
+      li.append(b); ul.append(li);
+    }
+    $('c-fname').textContent = `${fileName('docx')}\n${fileName('pdf')}`;
+    $('c-fname').style.whiteSpace = 'pre-line';
+    return miss;
+  }
+
+  // ---------- 인증 이력 캡처 ----------
+  function setAuth(file) {
+    if (S.authUrl) URL.revokeObjectURL(S.authUrl);
+    S.auth = file || null; S.authUrl = file ? URL.createObjectURL(file) : null;
+    $('c-auth-thumb').hidden = !file; if (file) $('c-auth-thumb').src = S.authUrl;
+    $('c-auth-clear').hidden = !file;
+    $('c-drop-title').textContent = file ? '인증 이력 캡처가 첨부되었습니다' : '인증 이력 캡처를 끌어다 놓기';
+    $('c-drop-sub').textContent = file ? `${file.name || '붙여넣은 이미지'} · 바꾸려면 다시 누르거나 붙여넣으세요.` : "클릭해서 고르거나, 이 칸을 누르고 Ctrl+V로 붙여넣기. 첨부하지 않으면 '인증 이력 캡처 미첨부' 안내 이미지가 들어갑니다.";
+    $('c-auth-file').value = '';
+  }
+
+  // ---------- DOCX 조작 ----------
+  const kids = (el, name) => [...el.childNodes].filter((n) => n.nodeName === name);
+  const kid = (el, name) => kids(el, name)[0] || null;
+  function textOf(el) { let s = ''; for (const t of el.getElementsByTagName('w:t')) s += t.textContent; return s; }
+  const preserve = (t) => t.setAttributeNS(XML_NS, 'xml:space', 'preserve');
+  function makeRun(doc, rPr, text) {
+    const r = doc.createElementNS(W, 'w:r');
+    if (rPr) r.appendChild(rPr.cloneNode(true));
+    const t = doc.createElementNS(W, 'w:t'); preserve(t); t.textContent = text; r.appendChild(t);
+    return r;
+  }
+  const splitLines = (v) => (v || '').split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
+  // pPr 안에서 w:ind 뒤에 와야 하는 요소들 (스키마 순서)
+  const AFTER_IND = ['w:contextualSpacing', 'w:mirrorIndents', 'w:suppressOverlap', 'w:jc', 'w:textDirection', 'w:textAlignment', 'w:textboxTightWrap', 'w:outlineLvl', 'w:divId', 'w:cnfStyle', 'w:rPr', 'w:sectPr', 'w:pPrChange'];
+  function setIndent(doc, p, left, hanging) {
+    let pPr = kid(p, 'w:pPr');
+    if (!pPr) { pPr = doc.createElementNS(W, 'w:pPr'); p.insertBefore(pPr, p.firstChild); }
+    kids(pPr, 'w:ind').forEach((n) => pPr.removeChild(n));
+    const ind = doc.createElementNS(W, 'w:ind');
+    ind.setAttributeNS(W, 'w:left', String(left)); ind.setAttributeNS(W, 'w:hanging', String(hanging));
+    pPr.insertBefore(ind, [...pPr.childNodes].find((n) => AFTER_IND.includes(n.nodeName)) || null);
+  }
+  // 라벨 칸 오른쪽 칸에 값을 넣는다
+  function fillLabel(doc, label, value) {
+    for (const tc of doc.getElementsByTagName('w:tc')) {
+      if (textOf(tc).trim() !== label) continue;
+      let n = tc.nextSibling; while (n && n.nodeName !== 'w:tc') n = n.nextSibling;
+      if (n) setCell(doc, n, value);
+    }
+  }
+  function setCell(doc, tc, value) {
+    const ps = kids(tc, 'w:p'); if (!ps.length) return;
+    const first = ps[0];
+    const run = first.getElementsByTagName('w:r')[0];
+    let rPr = run ? kid(run, 'w:rPr') : null;
+    if (!rPr) { const pPr = kid(first, 'w:pPr'); rPr = pPr ? kid(pPr, 'w:rPr') : null; }
+    rPr = rPr ? rPr.cloneNode(true) : null;
+    ps.slice(1).forEach((p) => tc.removeChild(p));
+    [...first.childNodes].filter((n) => n.nodeName !== 'w:pPr').forEach((n) => first.removeChild(n));
+    const proto = first.cloneNode(true);
+    splitLines(value).forEach((line, i) => {
+      const p = i === 0 ? first : proto.cloneNode(true);
+      p.appendChild(makeRun(doc, rPr, line));
+      if (i > 0) tc.appendChild(p);
+    });
+  }
+  function findParagraph(doc, test) {
+    for (const p of doc.getElementsByTagName('w:p')) if (test(textOf(p))) return p;
+    return null;
+  }
+  // 민원 내용 칸: 머리 문단 뒤의 빈 문단을 지우고 항목 문단을 넣는다
+  function fillSection(doc, header, value, keepGap) {
+    const head = findParagraph(doc, (t) => t.trim() === header); if (!head) return;
+    let n = head.nextSibling, proto = null;
+    while (n) {
+      const nx = n.nextSibling;
+      if (n.nodeName === 'w:p') {
+        if (textOf(n).trim() || n.getElementsByTagName('w:drawing').length) break;
+        if (!proto) proto = n.cloneNode(true);
+        n.parentNode.removeChild(n);
+      }
+      n = nx;
+    }
+    if (!proto) proto = head.cloneNode(true);
+    [...proto.childNodes].filter((c) => c.nodeName !== 'w:pPr').forEach((c) => proto.removeChild(c));
+    const pPr = kid(proto, 'w:pPr');
+    let rPr = pPr ? kid(pPr, 'w:rPr') : null;
+    if (rPr) { kids(rPr, 'w:b').concat(kids(rPr, 'w:bCs')).forEach((c) => rPr.removeChild(c)); rPr = rPr.cloneNode(true); }
+    let at = head;
+    for (const raw of splitLines(value)) {
+      const p = proto.cloneNode(true);
+      setIndent(doc, p, 340, 200);
+      p.appendChild(makeRun(doc, rPr, '- ' + raw.replace(/^[-·•]\s*/, '')));
+      head.parentNode.insertBefore(p, at.nextSibling); at = p;
+    }
+    if (keepGap) head.parentNode.insertBefore(proto.cloneNode(true), at.nextSibling);
+  }
+  // 여러 run으로 쪼개진 문장 안에서 정규식 첫 일치를 바꾼다
+  function replaceInParagraph(p, re, rep) {
+    const ts = [...p.getElementsByTagName('w:t')];
+    let full = ''; const spans = [];
+    for (const t of ts) { spans.push([full.length, full.length + t.textContent.length]); full += t.textContent; }
+    const m = re.exec(full); if (!m) return false;
+    const s = m.index, e = s + m[0].length; let placed = false;
+    ts.forEach((t, i) => {
+      const [a, b] = spans[i];
+      if (!(a < e && b > s)) return;
+      const txt = t.textContent;
+      t.textContent = (a < s ? txt.slice(0, s - a) : '') + (placed ? '' : rep) + (b > e ? txt.slice(e - a) : '');
+      preserve(t); placed = true;
+    });
+    return placed;
+  }
+  async function toPng(file) {
+    const bmp = await createImageBitmap(file);
+    const c = document.createElement('canvas'); c.width = bmp.width; c.height = bmp.height;
+    c.getContext('2d').drawImage(bmp, 0, 0);
+    const blob = await new Promise((r) => c.toBlob(r, 'image/png'));
+    return { bytes: new Uint8Array(await blob.arrayBuffer()), w: bmp.width, h: bmp.height };
+  }
+  async function replaceAuthImage(zip, doc, file) {
+    const anchor = findParagraph(doc, (t) => t.includes('[가입을 위한 본인 인증]')); if (!anchor) return;
+    let n = anchor.nextSibling, target = null, k = 0;
+    while (n && k < 6) { if (n.nodeName === 'w:p') { k++; if (n.getElementsByTagName('a:blip').length) { target = n; break; } } n = n.nextSibling; }
+    if (!target) return;
+    const blip = target.getElementsByTagName('a:blip')[0];
+    const rid = blip.getAttributeNS(RNS, 'embed') || blip.getAttribute('r:embed');
+    const rels = new DOMParser().parseFromString(await zip.file('word/_rels/document.xml.rels').async('string'), 'application/xml');
+    const rel = [...rels.getElementsByTagName('Relationship')].find((r) => r.getAttribute('Id') === rid);
+    if (!rel) return;
+    const png = await toPng(file);
+    zip.file('word/' + rel.getAttribute('Target').replace(/^\/?word\//, '').replace(/^\//, ''), png.bytes);
+    // 양식 이미지에 걸린 자르기(srcRect)를 없애고 첨부 이미지 비율로 맞춤, 높이는 9cm까지
+    for (const sr of [...target.getElementsByTagName('a:srcRect')]) sr.parentNode.removeChild(sr);
+    const ext = target.getElementsByTagName('wp:extent')[0];
+    let cx = Number(ext.getAttribute('cx')), cy = Math.round(cx * png.h / png.w);
+    const maxCy = 3240000;
+    if (cy > maxCy) { cx = Math.round(cx * maxCy / cy); cy = maxCy; }
+    ext.setAttribute('cx', cx); ext.setAttribute('cy', cy);
+    const xfrm = target.getElementsByTagName('a:xfrm')[0];
+    const aext = xfrm ? kid(xfrm, 'a:ext') : null;
+    if (aext) { aext.setAttribute('cx', cx); aext.setAttribute('cy', cy); }
+  }
+  let placeholder = null;
+  const getPlaceholder = () => (placeholder ||= fetch('complaint/placeholder.png').then((r) => { if (!r.ok) throw new Error('안내 이미지를 불러오지 못했습니다'); return r.blob(); }));
+  function loadTemplate(car) {
+    if (!S.tpl[car]) {
+      S.tpl[car] = fetch(CARS[car].file).then((r) => {
+        if (!r.ok) throw new Error(`${CARS[car].label} 양식을 불러오지 못했습니다 (${r.status})`);
+        return r.text();
+      }).then((b64) => {
+        const bin = atob(b64.trim()); const bytes = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        return bytes.buffer;
+      });
+      S.tpl[car].catch(() => { delete S.tpl[car]; });
+    }
+    return S.tpl[car];
+  }
+
+  // 원본 양식을 Word로 출력했을 때 새 쪽이 시작되는 지점. 미리보기·PDF용 사본에만 쪽 나눔을 넣는다
+  const PAGE_STARTS = ['민원 내역 정리', '민원 내용 답변', '당사 최종 의견', '가입채널별 프로세스', '운영 중 GDN 배너',
+    '해지 및 환불 절차', '외부 가입창을 통한 해지 안내', '당사 해지 채널을 통한', '고령자 가입에 대한 확인 증빙'];
+  function hasPageBreak(p) {
+    for (const br of p.getElementsByTagName('w:br')) if (br.getAttribute('w:type') === 'page') return true;
+    const pPr = kid(p, 'w:pPr');
+    return !!(pPr && (kid(pPr, 'w:pageBreakBefore') || kid(pPr, 'w:sectPr')));
+  }
+  function addPageBreaks(doc) {
+    const body = doc.getElementsByTagName('w:body')[0];
+    for (const label of PAGE_STARTS) {
+      const block = [...body.childNodes].find((n) => (n.nodeName === 'w:p' || n.nodeName === 'w:tbl') && textOf(n).trim().startsWith(label));
+      if (!block || (block.nodeName === 'w:p' && hasPageBreak(block))) continue;
+      let prev = block.previousSibling, already = false;
+      while (prev) {
+        if (prev.nodeName === 'w:p') {
+          if (hasPageBreak(prev)) { already = true; break; }
+          if (textOf(prev).trim() || prev.getElementsByTagName('w:drawing').length) break;
+        } else if (prev.nodeName === 'w:tbl') break;
+        prev = prev.previousSibling;
+      }
+      if (already) continue;
+      const p = doc.createElementNS(W, 'w:p'), r = doc.createElementNS(W, 'w:r'), br = doc.createElementNS(W, 'w:br');
+      br.setAttributeNS(W, 'w:type', 'page'); r.appendChild(br); p.appendChild(r);
+      body.insertBefore(p, block);
+    }
+  }
+
+  async function buildDocx(forLayout) {
+    const c = CARS[S.car], v = values();
+    const zip = await JSZip.loadAsync(await loadTemplate(S.car));
+    const doc = new DOMParser().parseFromString(await zip.file('word/document.xml').async('string'), 'application/xml');
+    // 표지
+    fillLabel(doc, '대상 민원인', v.name);
+    fillLabel(doc, '작성 일자', v.writeDate);
+    // 민원 내역 정리
+    fillLabel(doc, '성명', v.name); fillLabel(doc, '연령', v.age); fillLabel(doc, '성별', v.gender);
+    fillLabel(doc, '연락처', v.phone); fillLabel(doc, '접수 방법', v.channel);
+    fillLabel(doc, '현재 상태', v.status); fillLabel(doc, '가입 이력', v.history);
+    fillLabel(doc, '가입 일시', v.joinAt); fillLabel(doc, '해지 일시', v.cancelAt);
+    fillLabel(doc, '가입 경로', v.joinRoute); fillLabel(doc, '해지 경로', v.cancelRoute);
+    fillLabel(doc, '환불 여부', v.refundYn); fillLabel(doc, '환불 금액', v.refundAmt);
+    fillSection(doc, '1. 사실관계', v.facts, true);
+    fillSection(doc, '2. 민원인의 주장', v.claims, false);
+    // 사실 관계 표
+    fillLabel(doc, '가입경로', v.joinRoute); fillLabel(doc, '가입 본인 인증 일시', v.authAt);
+    fillLabel(doc, '가입일시', v.joinAt); fillLabel(doc, '해지경로', v.cancelRoute); fillLabel(doc, '해지일시', v.cancelAt);
+    fillLabel(doc, '환불이력', v.refundLog); fillLabel(doc, '현재 가입 상태', v.status);
+    fillLabel(doc, '서비스사 고객센터 이력', v.csLog);
+    // 인증 문자
+    const sms = findParagraph(doc, (t) => t.includes('발송일시'));
+    if (sms) {
+      if (v.smsAt) replaceInParagraph(sms, /\d{4}[-./]\d{1,2}[-./]\d{1,2}\s+\d{1,2}:\d{2}(:\d{2})?/, v.smsAt);
+      if (v.smsCode) replaceInParagraph(sms, /(?<=인증번호\s*\[)[^\]]*(?=\])/, v.smsCode);
+    }
+    // KT·LG U+ 양식에 남은 SKT 해지 안내 문구 정정
+    if (c.key !== 'SKT') {
+      for (const p of doc.getElementsByTagName('w:p')) {
+        replaceInParagraph(p, /SKT(?=\s*통신사 홈페이지)/, c.telco);
+        replaceInParagraph(p, /SKT(?=\s*고객센터\(114\))/, c.telco);
+      }
+    }
+    await replaceAuthImage(zip, doc, S.auth || await getPlaceholder());
+    if (forLayout) addPageBreaks(doc);
+    zip.file('word/document.xml', new XMLSerializer().serializeToString(doc));
+    return zip.generateAsync({ type: 'blob', compression: 'DEFLATE', mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+  }
+
+  // ---------- 미리보기 ----------
+  const RENDER = { className: 'docx', inWrapper: true, ignoreWidth: false, ignoreHeight: false, breakPages: true,
+    ignoreLastRenderedPageBreak: true, useBase64URL: true, renderHeaders: true, renderFooters: true, experimental: false };
+  const imagesReady = (root) => Promise.all([...root.querySelectorAll('img')].map((i) => (i.complete ? 0 : new Promise((r) => { i.onload = i.onerror = r; }))));
+  function fitPreview() {
+    const box = $('c-pv-box'), sc = $('c-pv-scale'), hold = $('c-pv-hold');
+    const inner = sc.querySelector('.docx-wrapper'); if (!inner || !box.clientWidth) return;
+    sc.style.transform = 'none';
+    const w = inner.scrollWidth || 820, h = inner.scrollHeight;
+    const s = Math.min(1, box.clientWidth / w);
+    sc.style.transform = `scale(${s})`; sc.style.width = `${w}px`;
+    hold.style.height = `${Math.ceil(h * s)}px`;
+  }
+  let seq = 0, timer = 0;
+  function refresh(now) {
+    renderState();
+    clearTimeout(timer);
+    timer = setTimeout(async () => {
+      const my = ++seq;
+      $('c-pv-info').textContent = '갱신 중…';
+      try {
+        const blob = await buildDocx(true); if (my !== seq) return;
+        const sc = $('c-pv-scale'); sc.replaceChildren();
+        await docx.renderAsync(blob, sc, null, RENDER); if (my !== seq) return;
+        $('c-pv-empty').hidden = true;
+        fitPreview(); await imagesReady(sc); fitPreview();
+        $('c-pv-info').textContent = `${sc.querySelectorAll('section.docx').length}개 구역`;
+      } catch (e) {
+        if (my !== seq) return;
+        $('c-pv-empty').hidden = false;
+        $('c-pv-empty').textContent = `미리보기를 만들지 못했습니다. ${e?.message || e}`;
+        $('c-pv-info').textContent = '';
+      }
+    }, now ? 0 : 700);
+  }
+
+  // ---------- PDF ----------
+  function rowIsBlank(data, w, y, x0, x1) {
+    const row = y * w * 4;
+    for (let x = x0; x < x1; x += 3) { const i = row + x * 4; if (data[i] < 245 || data[i + 1] < 245 || data[i + 2] < 245) return false; }
+    return true;
+  }
+  function isBlank(ctx, w, y0, y1) {
+    const d = ctx.getImageData(0, y0, w, Math.max(1, y1 - y0)).data;
+    for (let i = 0; i < d.length; i += 28) if (d[i] < 245 || d[i + 1] < 245 || d[i + 2] < 245) return false;
+    return true;
+  }
+  function slice(src, y, h) {
+    const c = document.createElement('canvas'); c.width = src.width; c.height = h;
+    const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, h);
+    g.drawImage(src, 0, y, src.width, h, 0, 0, src.width, h);
+    return c;
+  }
+  async function buildPdf(blob) {
+    const stage = $('c-pdf-stage'); stage.replaceChildren();
+    await docx.renderAsync(blob, stage, null, RENDER);
+    await imagesReady(stage);
+    if (document.fonts?.ready) await document.fonts.ready;
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({ unit: 'pt', format: 'a4', compress: true });
+    const PW = pdf.internal.pageSize.getWidth(), PH = pdf.internal.pageSize.getHeight();
+    let first = true;
+    const add = (c, topPx) => {
+      if (!first) pdf.addPage(); first = false;
+      pdf.addImage(c.toDataURL('image/jpeg', 0.92), 'JPEG', 0, topPx * PW / c.width, PW, c.height * PW / c.width);
+    };
+    const secs = [...stage.querySelectorAll('section.docx')];
+    for (let si = 0; si < secs.length; si++) {
+      setMsg(`PDF 만드는 중… (${si + 1}/${secs.length})`);
+      const canvas = await html2canvas(secs[si], { scale: 2, backgroundColor: '#ffffff', logging: false });
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
+      const pageH = Math.round(canvas.width * PH / PW), padPx = Math.round(pageH * 0.06);
+      if (canvas.height <= pageH * 1.02) { if (!isBlank(ctx, canvas.width, 0, canvas.height)) add(canvas, 0); continue; }
+      // 한 쪽보다 긴 구역은 빈 줄을 찾아 여러 쪽으로 자름
+      const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+      const x0 = Math.round(canvas.width * 0.06), x1 = Math.round(canvas.width * 0.94);
+      let y = 0, part = 0;
+      while (y < canvas.height - 4) {
+        const top = part ? padPx : 0, avail = pageH - top - padPx;
+        let cut = Math.min(canvas.height, y + avail);
+        if (cut < canvas.height) {
+          const floor = y + Math.round(avail * 0.6);
+          let c2 = cut; while (c2 > floor && !rowIsBlank(data, canvas.width, c2, x0, x1)) c2--;
+          if (c2 > floor) cut = c2;
+        }
+        if (!isBlank(ctx, canvas.width, y, cut)) add(slice(canvas, y, cut - y), top);
+        y = cut; part++;
+      }
+    }
+    stage.replaceChildren();
+    return pdf.output('blob');
+  }
+
+  // ---------- 저장 ----------
+  async function saveFile(filename, blob) {
+    if (typeof window.claude?.use === 'function') {
+      const dl = await window.claude.use('downloads');
+      if (!dl) throw { code: 'unavailable' };
+      return dl.save({ filename, data: blob });
+    }
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = filename;
+    document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    return { status: 'saved' };
+  }
+  const SAVE_ERR = {
+    declined: '저장을 취소했습니다.',
+    rate_limited: '저장 창이 이미 열려 있습니다. 잠시 후 다시 눌러 주세요.',
+    unavailable: '이 화면에서는 파일 저장을 쓸 수 없습니다.',
+  };
+  function setMsg(t, err) { $('c-msg').textContent = t; $('c-msg').className = 'msg' + (err ? ' err' : ''); }
+  async function save(kind) {
+    if (S.busy) return;
+    const miss = renderState();
+    S.busy = true; $('c-save-docx').disabled = $('c-save-pdf').disabled = true;
+    setMsg(kind === 'pdf' ? 'PDF 만드는 중…' : 'DOCX 만드는 중…');
+    try {
+      const data = kind === 'pdf' ? await buildPdf(await buildDocx(true)) : await buildDocx(false);
+      const name = fileName(kind);
+      setMsg('저장 창에서 확인을 눌러 주세요.');
+      await saveFile(name, data);
+      setMsg(`${name} 저장했습니다.${miss.length ? ` 필수 항목 ${miss.length}개가 빈 칸입니다.` : ''}`, !!miss.length);
+    } catch (e) {
+      setMsg(e?.code ? (SAVE_ERR[e.code] || SAVE_ERR.unavailable) : `문서를 만들지 못했습니다: ${e?.message || e}`, true);
+    } finally {
+      S.busy = false; $('c-save-docx').disabled = $('c-save-pdf').disabled = false;
+    }
+  }
+
+  // ---------- 통신사 탭 ----------
+  function setCar(car) {
+    if (!CARS[car]) car = 'skt';
+    S.car = car;
+    const host = $('c-car-tabs'); host.replaceChildren();
+    for (const k of ORDER) {
+      const b = document.createElement('button');
+      b.className = 'tab'; b.type = 'button'; b.setAttribute('role', 'tab');
+      b.setAttribute('aria-selected', String(k === car));
+      b.textContent = CARS[k].label;
+      const sm = document.createElement('small'); sm.textContent = CARS[k].desc; b.append(sm);
+      b.addEventListener('click', () => setCar(k));
+      host.append(b);
+    }
+    $('c-pv-title').textContent = `${CARS[car].label} 사실확인서 미리보기`;
+    try { localStorage.setItem('complaint-car', car); } catch {}
+    refresh(true);
+  }
+
+  // ---------- 시작 (메뉴를 처음 열 때) ----------
+  let started = false;
+  function start() {
+    if (started) return;
+    started = true;
+    for (const [k, v] of Object.entries(EXAMPLE)) field(k).value = v;
+    field('writeDate').value = today();
+    $('c-clear').addEventListener('click', () => {
+      for (const k of FIELDS) field(k).value = '';
+      field('writeDate').value = today();
+      setAuth(null);
+      $('c-example').hidden = true;
+      refresh(true);
+      field('name').focus();
+    });
+    for (const k of FIELDS) field(k).addEventListener('input', () => refresh(false));
+    $('c-save-docx').addEventListener('click', () => save('docx'));
+    $('c-save-pdf').addEventListener('click', () => save('pdf'));
+    const drop = $('c-drop'), input = $('c-auth-file');
+    const take = (f) => { if (f) { setAuth(f); refresh(true); } };
+    drop.addEventListener('click', () => input.click());
+    drop.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } });
+    input.addEventListener('change', () => take(input.files[0]));
+    drop.addEventListener('dragover', (e) => { e.preventDefault(); drop.classList.add('over'); });
+    drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+    drop.addEventListener('drop', (e) => { e.preventDefault(); drop.classList.remove('over'); take([...e.dataTransfer.files].find((f) => f.type.startsWith('image/'))); });
+    document.addEventListener('paste', (e) => {
+      if ($('view-complaint').hidden) return;
+      const t = e.target; if (t && (t.tagName === 'TEXTAREA' || t.tagName === 'INPUT')) return;
+      const item = [...(e.clipboardData?.items || [])].find((i) => i.type.startsWith('image/'));
+      if (item) { e.preventDefault(); take(item.getAsFile()); }
+    });
+    $('c-auth-clear').addEventListener('click', () => { setAuth(null); refresh(true); });
+    let rz = 0; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(fitPreview, 120); });
+    let car = 'skt';
+    try { car = localStorage.getItem('complaint-car') || 'skt'; } catch {}
+    setCar(car);
+  }
+  if (!$('view-complaint').hidden) start();
+  document.addEventListener('menuchange', (e) => {
+    if (e.detail !== 'complaint') return;
+    if (started) requestAnimationFrame(fitPreview); else start();
+  });
+})();
+</script>
+
+</body></html>
